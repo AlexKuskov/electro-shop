@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 120px;
+    background-color: rgb(195, 194, 255);
+}
+
+.header__logo {
+    margin: 15px;
+    height: 100px;
+}
+
+.header__cart-icon {
+    height: 30px;
+}
+
