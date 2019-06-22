@@ -9,6 +9,10 @@ import { LanguagesComponent } from './components/header/languages/languages.comp
 import { ContentComponent } from './components/content/content.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchResultComponent } from './components/content/search-result/search-result.component';
+import { FilterComponent } from './components/content/filter/filter.component';
+import { MainComponent } from './components/content/main/main.component';
+import { NavigationItemContentComponent } from './components/content/navigation-item-content/navigation-item-content.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { FooterComponent } from './components/footer/footer.component';
     LanguagesComponent,
     ContentComponent,
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    SearchResultComponent,
+    FilterComponent,
+    MainComponent,
+    NavigationItemContentComponent
   ],
   imports: [
     BrowserModule,
