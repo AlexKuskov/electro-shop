@@ -1,9 +1,33 @@
+:host {
+    --height: 40px;
+}
+
 .nav {
     --border-configs: 3px solid rgb(200, 166, 255);
 
+    display: flex;
     width: 100%;
-    height: 40px;
+    height: var(--height);
     background-color: rgb(232, 218, 255);
     border-top: var(--border-configs);
     border-bottom: var(--border-configs);
+}
+
+.nav__item {
+    height: 100%;
+    line-height: var(--height);
+    text-align: center;
+    flex-grow: 1;
+    border-right: 3px solid rgb(200, 166, 255);
+    border-left: 3px solid rgb(200, 166, 255);
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        background-color: rgb(219, 210, 241);
+    }
+
+    &:active {
+        background-color: rgb(207, 192, 243);
+    }
 }
