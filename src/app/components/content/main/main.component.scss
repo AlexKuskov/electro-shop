@@ -1,6 +1,58 @@
+:host {
+    width: 100%;
+}
+
 .main {
-    display: inline-block;
-    height: 100px;
-    width: 30%;
-    background-color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.main__slider {
+    display: flex;
+    overflow-x: auto;
+    width: 90%;
+    height: 400px;
+    margin: 3% 5%;
+}
+
+.main__slide {
+    width: 100%;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+#slide-1 {
+    background-color: wheat;
+}
+
+#slide-2 {
+    background-color: green;
+}
+
+#slide-3 {
+    background-color: rgb(236, 171, 49);
+}
+
+.main__most-popular {
+    width: 90%;
+    margin: 0 5%;
+    padding: 50px 0;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+.popular-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 180px);
+    grid-template-rows: repeat(2, 260px);
+    justify-content: space-between;
+    grid-row-gap: 40px;
+    margin-top: 40px;
+}
+
+.popular-products-grid__item {
+    background-color: rgb(255, 188, 188);
 }
