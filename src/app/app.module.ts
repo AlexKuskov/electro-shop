@@ -11,8 +11,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SearchResultComponent } from './components/content/search-result/search-result.component';
 import { FilterComponent } from './components/content/filter/filter.component';
 import { MainComponent } from './components/content/main/main.component';
-import { NavigationItemContentComponent } from './components/content/navigation-item-content/navigation-item-content.component';
 import { HeaderCenterComponent } from './components/header/header-center/header-center.component';
+import { CategoryContentComponent } from './components/content/category-content/category-content.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,8 @@ import { HeaderCenterComponent } from './components/header/header-center/header-
     SearchResultComponent,
     FilterComponent,
     MainComponent,
-    NavigationItemContentComponent,
-    HeaderCenterComponent
+    HeaderCenterComponent,
+    CategoryContentComponent
   ],
   imports: [
     BrowserModule,
