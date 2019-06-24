@@ -1,5 +1,31 @@
 .filter {
-    display: inline-block;
-    height: 100%;
+    height: 720px;
     width: 200px;
+    padding: 10px;
+}
+
+.filter__parameter {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    height: 200px;
+    padding: 5px;
+}
+
+.filter__parameter-title {
+    width: 100%;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.filter__parameter--price {
+    height: 55px;
+}
+
+.price-field {
+    width: 30%;
+}
+
+.submit-price {
+    margin-left: 8px;
 }
