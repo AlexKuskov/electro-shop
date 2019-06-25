@@ -1,4 +1,32 @@
-.products-grid__item {
+.product-item {
     height: 100%;
-    background-color: yellow;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+}
+
+.product-item__img {
+    height: 70%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: #fff;
+}
+
+.product-item__info {
+    padding: 5px 5px;
+}
+
+.product-item__title {
+    text-align: center;
+    height: 2em;
+    margin-bottom: 10px;
+}
+
+.product-item__price {
+    display: inline-block;
+    width: 50%;
+}
+
+.product-item__buy-button {
+    display: inline-block;
+    width: 50%;
 }
