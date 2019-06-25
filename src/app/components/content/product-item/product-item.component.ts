@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataProviderService } from 'src/app/services/data-provider.service';
 import { ProductItem } from 'src/app/model/product-item';
 
 @Component({
@@ -12,7 +11,7 @@ export class ProductItemComponent implements OnInit {
   @Input()
   productItem: ProductItem;
 
-  constructor(public dataProviderService: DataProviderService) { }
+  constructor() { }
 
   ngOnInit() {
   }

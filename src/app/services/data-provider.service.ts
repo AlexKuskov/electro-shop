@@ -6,15 +6,6 @@ import { ProductItem } from '../model/product-item';
 })
 export class DataProviderService {
 
-  categories: String[] = [
-    "Laptops",
-    "Tablets",
-    "Phones",
-    "TVs",
-    "E-Books",
-    "Video Game Consoles",
-    "Smart Watches"
-  ];
   filters: any;
 
   //laptops: ProductItem[];
@@ -26,6 +17,18 @@ export class DataProviderService {
   smartWatches: ProductItem[];
 
   constructor() { }
+
+  get categories(): String[] {
+    return [
+      "Laptops",
+      "Tablets",
+      "Phones",
+      "TVs",
+      "E-Books",
+      "Video Game Consoles",
+      "Smart Watches"
+    ];
+  }
 
   get laptops(): ProductItem[] {
     return [

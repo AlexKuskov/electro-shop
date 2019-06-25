@@ -1,9 +1,3 @@
 <nav class="nav">
-    <div class="nav__category">Laptops</div>
-    <div class="nav__category">Tablets</div>
-    <div class="nav__category">Phones</div>
-    <div class="nav__category">TV</div>
-    <div class="nav__category">E-Books</div>
-    <div class="nav__category">Video Game Console</div>
-    <div class="nav__category">Smartwatches</div>
+    <div class="nav__category" *ngFor="let category of dataProvider.categories;">{{ category }}</div>
 </nav>

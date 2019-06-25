@@ -8,7 +8,7 @@ import { DataProviderService } from 'src/app/services/data-provider.service';
 })
 export class ProductsGridComponent implements OnInit {
 
-  constructor(public dataProviderService: DataProviderService) { }
+  constructor(public dataProvider: DataProviderService) { }
 
   ngOnInit() {
   }
