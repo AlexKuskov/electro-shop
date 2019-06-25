@@ -1,7 +1,6 @@
 <div class="products-grid">
-  <app-product-item></app-product-item>
-  <app-product-item></app-product-item>
-  <app-product-item></app-product-item>
-  <app-product-item></app-product-item>
-  <app-product-item></app-product-item>
+  <app-product-item 
+    *ngFor="let productItem of dataProviderService.laptops;"
+    [productItem]="productItem">
+  </app-product-item>
 </div>
