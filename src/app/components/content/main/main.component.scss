@@ -43,16 +43,3 @@
     width: 100%;
     text-align: center;
 }
-
-.popular-products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 180px);
-    grid-template-rows: repeat(2, 260px);
-    justify-content: space-between;
-    grid-row-gap: 40px;
-    margin-top: 40px;
-}
-
-.popular-products-grid__item {
-    background-color: rgb(255, 188, 188);
-}

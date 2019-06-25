@@ -6,16 +6,3 @@
     height: 100%;
     padding: 0 20px;
 }
-
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 180px);
-    grid-template-rows: repeat(2, 260px);
-    justify-content: space-between;
-    grid-row-gap: 40px;
-    margin-top: 40px;
-}
-
-.products-grid__item {
-    background-color: yellow;
-}
