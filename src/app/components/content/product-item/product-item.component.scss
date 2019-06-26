@@ -52,15 +52,15 @@
 
 .product-item__description {
     display: none;
-    height: 50px;
     width: 186px;
     position: relative;
     z-index: 1;
     top: 8px;
     right: 7px;
     padding: 5px;
+    padding-bottom: 8px;
     border: 2px solid rgb(0, 0, 0);
-    border-top: none;
+    border-top: 2px dashed rgb(1, 0, 0);
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     background-color: rgb(226, 224, 255);

@@ -437,4 +437,19 @@ export class DataProviderService {
     ];
   }
 
+  get mostPopular(): ProductItem[] {
+    return [
+      this.laptops[1],
+      this.laptops[4],
+      this.tablets[2],
+      this.phones[0],
+      this.tvs[2],
+      this.tvs[3],
+      this.eBooks[0],
+      this.eBooks[1],
+      this.videoGameConsoles[0],
+      this.smartWatches[1]
+    ]
+  }
+
 }
