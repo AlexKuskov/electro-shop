@@ -348,6 +348,36 @@ export class DataProviderService {
         screenSize: "",
         memoryCapacity: "128 GB",
         manufacturer: "Sony"
+      },
+      {
+        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        title: "PlayStation 4 Slim",
+        price: "13 199",
+        diagonal: "",
+        os: "",
+        screenSize: "",
+        memoryCapacity: "128 GB",
+        manufacturer: "Sony"
+      },
+      {
+        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        title: "PlayStation 1",
+        price: "999",
+        diagonal: "",
+        os: "",
+        screenSize: "",
+        memoryCapacity: "64 GB",
+        manufacturer: "Sony"
+      },
+      {
+        image: "assets/images/products/videoGameConsoles/console-2.jpg",
+        title: "Microsoft XBOX Pro",
+        price: "3 799",
+        diagonal: "",
+        os: "",
+        screenSize: "",
+        memoryCapacity: "128 GB",
+        manufacturer: "Microsoft"
       }
     ];
   }
