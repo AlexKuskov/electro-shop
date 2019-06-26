@@ -8,7 +8,6 @@ export class DataProviderService {
 
   filters: any;
 
-  tablets: ProductItem[];
   phones: ProductItem[];
   tvs: ProductItem[];
   eBooks: ProductItem[];
@@ -97,6 +96,51 @@ export class DataProviderService {
         price: "29 089",
         diagonal: "14''",
         os: "Linux",
+        screenSize: "1440x900",
+        memoryCapacity: "512 GB",
+        manufacturer: "Lenovo"
+      }
+    ];
+  }
+
+  get tablets(): ProductItem[] {
+    return [
+      {
+        image: "assets/images/products/tablets/tablet-1.jpg",
+        title: "Yuntab GTT89",
+        price: "2 799",
+        diagonal: "14''",
+        os: "Android 6",
+        screenSize: "1440x900",
+        memoryCapacity: "512 GB",
+        manufacturer: "Lenovo"
+      },
+      {
+        image: "assets/images/products/tablets/tablet-2.jpg",
+        title: "Prestigio 550",
+        price: "1 099",
+        diagonal: "14''",
+        os: "Android 7",
+        screenSize: "1440x900",
+        memoryCapacity: "512 GB",
+        manufacturer: "Lenovo"
+      },
+      {
+        image: "assets/images/products/tablets/tablet-1.jpg",
+        title: "Lenovo 333",
+        price: "2 799",
+        diagonal: "14''",
+        os: "Android 7",
+        screenSize: "1440x900",
+        memoryCapacity: "512 GB",
+        manufacturer: "Lenovo"
+      },
+      {
+        image: "assets/images/products/tablets/tablet-2.jpg",
+        title: "ASUS YH33",
+        price: "799",
+        diagonal: "14''",
+        os: "Android 5",
         screenSize: "1440x900",
         memoryCapacity: "512 GB",
         manufacturer: "Lenovo"
