@@ -1,7 +1,7 @@
 export class ProductItem {
     image: string;
     title: string;
-    price: number;
+    price: string;
     diagonal: string;
     os: string;
     screenSize: string;
