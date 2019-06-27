@@ -1,11 +1,30 @@
 <main class="main">
-    <div class="main__slider">
-        <div class="main__slide" id="slide-1">1</div>
-        <div class="main__slide" id="slide-2">2</div>
-        <div class="main__slide" id="slide-3">3</div>
+    <div class="slider">
+        <div class="slider__slide-wrapper">
+            <img class="slider__slide" 
+                [@selectSlide]="getSlide()"
+                *ngFor="let slide of dataProvider.slides; let index = index;" 
+                [src]="slide" 
+                alt="Slide" 
+                [ngClass]="'slide-' + index">
+        </div>
+
+        <div class="arrows prev"></div>
+        <div class="arrows next"></div>
+        
+        <div class="slider__radio-button-wrapper">
+            <input class="slider__radio-button" type="radio" name="slide-trigger" id="first" checked>
+            <label class="slider__styled-radio-button" for="first" (click)="setSlide('firstSlide')"></label>
+
+            <input class="slider__radio-button" type="radio" name="slide-trigger" id="second">
+            <label class="slider__styled-radio-button" for="second" (click)="setSlide('secondSlide')"></label>
+
+            <input class="slider__radio-button" type="radio" name="slide-trigger" id="third">
+            <label class="slider__styled-radio-button" for="third" (click)="setSlide('thirdSlide')"></label>
+        </div>
     </div>
-    <div class="main__most-popular">
-        <h2 class="title">Most Popular</h2>
+    <div class="most-popular">
+        <h2 class="most-popular__title">Most Popular</h2>
         <app-products-grid></app-products-grid>
     </div>
 </main>

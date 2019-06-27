@@ -22,6 +22,14 @@ export class DataProviderService {
     ];
   }
 
+  get slides(): String[] {
+    return [
+      "assets/images/slides/slide-1.jpg",
+      "assets/images/slides/slide-2.jpg",
+      "assets/images/slides/slide-3.jpg"
+    ]
+  }
+
   get laptops(): ProductItem[] {
     return [
       {
