@@ -1,28 +1,33 @@
 <main class="main">
     <div class="slider">
         <div class="slider__slide-wrapper">
-            <img class="slider__slide" 
-                [@selectSlide]="getSlide()"
-                *ngFor="let slide of dataProvider.slides; let index = index;" 
-                [src]="slide" 
-                alt="Slide" 
-                [ngClass]="'slide-' + index">
+            <ng-template ngFor let-slide [ngForOf]="dataProvider.slides" let-i="index">
+                <img class="slider__slide" 
+                    *ngIf="i === getSlide()"
+                    @selectSlide
+                    [src]="slide" 
+                     alt="Slide">
+            </ng-template>
         </div>
 
-        <div class="arrows prev"></div>
-        <div class="arrows next"></div>
+        <div class="arrows prev" (click)="decreaseIndex()"></div>
+        <div class="arrows next" (click)="increaseIndex()"></div>
         
         <div class="slider__radio-button-wrapper">
-            <input class="slider__radio-button" type="radio" name="slide-trigger" id="first" checked>
-            <label class="slider__styled-radio-button" for="first" (click)="setSlide('firstSlide')"></label>
+            <input class="slider__radio-button" type="radio"
+                   name="slide-trigger" id="first" [checked]="getSlide() === 0">
+            <label class="slider__styled-radio-button" for="first" (click)="setSlide(0)"></label>
 
-            <input class="slider__radio-button" type="radio" name="slide-trigger" id="second">
-            <label class="slider__styled-radio-button" for="second" (click)="setSlide('secondSlide')"></label>
+            <input class="slider__radio-button" type="radio"
+                   name="slide-trigger" id="second" [checked]="getSlide() === 1">
+            <label class="slider__styled-radio-button" for="second" (click)="setSlide(1)"></label>
 
-            <input class="slider__radio-button" type="radio" name="slide-trigger" id="third">
-            <label class="slider__styled-radio-button" for="third" (click)="setSlide('thirdSlide')"></label>
+            <input class="slider__radio-button" type="radio"
+                   name="slide-trigger" id="third" [checked]="getSlide() === 2">
+            <label class="slider__styled-radio-button" for="third" (click)="setSlide(2)"></label>
         </div>
     </div>
+    
     <div class="most-popular">
         <h2 class="most-popular__title">Most Popular</h2>
         <app-products-grid></app-products-grid>
