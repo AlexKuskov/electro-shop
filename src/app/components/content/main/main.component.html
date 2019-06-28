@@ -1,14 +1,10 @@
 <main class="main">
     <div class="slider">
-        <div class="slider__slide-wrapper">
-            <ng-template ngFor let-slide [ngForOf]="dataProvider.slides" let-i="index">
-                <img class="slider__slide" 
-                    *ngIf="i === getSlide()"
-                    @selectSlide
-                    [src]="slide" 
-                     alt="Slide">
-            </ng-template>
-        </div>
+        <img class="slider__slide" 
+            [@selectSlide]="getSlide()"
+            *ngFor="let slide of dataProvider.slides"
+            [src]="slide" 
+            alt="Slide">
 
         <div class="arrows prev" (click)="decreaseIndex()"></div>
         <div class="arrows next" (click)="increaseIndex()"></div>

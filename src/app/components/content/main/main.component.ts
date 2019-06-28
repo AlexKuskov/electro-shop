@@ -4,7 +4,8 @@ import {
   trigger,
   style,
   animate,
-  transition
+  transition,
+  state
 } from '@angular/animations';
 
 @Component({
@@ -13,9 +14,17 @@ import {
   styleUrls: ['./main.component.scss'],
   animations: [
     trigger('selectSlide', [
-      transition(':enter', [
-        style({ opacity: 0}),
-        animate('1s', style({ opacity: 1}))
+      state('0', style({
+        transform: 'translateX(0)'
+      })),
+      state('1', style({
+        transform: 'translateX(-100%)'
+      })),
+      state('2', style({
+        transform: 'translateX(-200%)'
+      })),
+      transition('* => *', [
+        animate('1s')
       ])
     ])
   ]
