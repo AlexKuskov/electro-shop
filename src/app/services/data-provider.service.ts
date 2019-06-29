@@ -28,7 +28,7 @@ export class DataProviderService {
     ]
   }
 
-  get filters(): String[] {
+  get parameters(): String[] {
     return [
       "Category:",
       "Manufacturer:",

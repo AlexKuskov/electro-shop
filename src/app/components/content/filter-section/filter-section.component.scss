@@ -5,6 +5,7 @@
 }
 
 .filter-parameter {
+    position: relative;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
     margin-bottom: 15px;
@@ -12,23 +13,35 @@
 }
 
 .filter-parameter__title {
-    position: relative;
-    width: 100%;
+    display: inline-block;
+    width: 90%;
     font-weight: 700;
-    margin-bottom: 8px;
 }
 
 .filter-parameter__checkbox {
     visibility: hidden;
+
+    &:checked + .filter-parameter__down-arrow-wrapper {
+        transform: rotate(0deg);
+    }
+
+    &:checked ~ .filter-parameter__option-list {
+        display: none;
+    }
 }
 
 .filter-parameter__down-arrow-wrapper {
+    height: 20px;
     position: absolute;
-    right: 0;
+    right: 5px;
+    top: 4px;
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .down-arrow-icon {
-    height: 20px;
+    height: 100%;
 }
 
 .filter-parameter--price {
@@ -36,6 +49,7 @@
 }
 
 .price-field {
+    margin-top: 8px;
     width: 30%;
 }
 
