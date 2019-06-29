@@ -1,24 +1,37 @@
-.filter {
-    height: 720px;
+.filter-section {
+    min-height: 720px;
     width: 200px;
     padding: 10px;
 }
 
-.filter__parameter {
+.filter-parameter {
     border: 2px solid rgb(0, 0, 0);
     border-radius: 15px;
     margin-bottom: 15px;
-    height: 200px;
     padding: 5px;
 }
 
-.filter__parameter-title {
+.filter-parameter__title {
+    position: relative;
     width: 100%;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.filter__parameter--price {
+.filter-parameter__checkbox {
+    visibility: hidden;
+}
+
+.filter-parameter__down-arrow-wrapper {
+    position: absolute;
+    right: 0;
+}
+
+.down-arrow-icon {
+    height: 20px;
+}
+
+.filter-parameter--price {
     height: 55px;
 }
 

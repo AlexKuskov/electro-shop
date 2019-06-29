@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataProviderService } from 'src/app/services/data-provider.service';
 
 @Component({
   selector: 'app-filter-section',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterSectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataProvider: DataProviderService) { }
 
   ngOnInit() {
   }

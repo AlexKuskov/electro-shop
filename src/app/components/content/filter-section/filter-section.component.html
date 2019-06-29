@@ -1,16 +1,30 @@
-<aside class="filter">
-  <div class="filter__parameter title">
-      <div class="filter__parameter-title">Category:</div> 
+<aside class="filter-section">
+  <div class="filter-parameter" *ngFor="let filter of dataProvider.filters; let i = index;">
+      <div class="filter-parameter__title">
+        {{ filter }}
+        <!-- <div class="filter-parameter__toggle"> -->
+          <!-- <img src="assets/images/down-arrow.svg" alt="sdf"> -->
+          <input class="filter-parameter__checkbox" type="checkbox" id="checkbox-{{ i }}">
+          <label class="filter-parameter__down-arrow-wrapper" for="checkbox-{{ i }}">
+            <img class="down-arrow-icon" src="assets/images/down-arrow.svg" alt="54">
+          </label>
+        <!-- </div> -->
+        
+      </div> 
+      
       <ul>
-          <li>Laptops</li>
+          <li><input class="filter-parameter__option" type="checkbox">Laptops (3)</li>
           <li>Tablets</li>
       </ul>
   </div>
-  <div class="filter__parameter title">
-      <div class="filter__parameter-title">Manufacturer:</div>
-  </div>
-  <div class="filter__parameter filter__parameter--price title">
-      <div class="filter__parameter-title">Price:</div>
+  <!-- <div class="filter-parameter title">
+      <div class="filter-parameter-title">Manufacturer:</div>
+  </div> -->
+
+
+  <!-- maybe add Price: to loop. -->
+  <div class="filter-parameter filter-parameter--price">
+      <div class="filter-parameter__title">Price:</div>
       <input class="price-field" maxlength="6" type="text" name="min">
        - 
       <input class="price-field" maxlength="6" type="text" name="max">

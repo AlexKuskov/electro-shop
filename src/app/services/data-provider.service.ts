@@ -32,12 +32,11 @@ export class DataProviderService {
     return [
       "Category:",
       "Manufacturer:",
-      "Price:",
       "Diagonal:",
       "OS:",
       "Screen Size:",
       "Memory Capacity:"
-    ]
+    ];
   }
 
   get laptops(): ProductItem[] {
