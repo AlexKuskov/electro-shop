@@ -16,6 +16,7 @@ import { HeaderCenterComponent } from './components/header/header-center/header-
 import { CategoryContentComponent } from './components/content/category-content/category-content.component';
 import { ProductsGridComponent } from './components/content/products-grid/products-grid.component';
 import { ProductItemComponent } from './components/content/product-item/product-item.component';
+import { SliderButtonDirective } from './components/content/main/slider-button.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductItemComponent } from './components/content/product-item/product-
     HeaderCenterComponent,
     CategoryContentComponent,
     ProductsGridComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    SliderButtonDirective
   ],
   imports: [
     BrowserModule,

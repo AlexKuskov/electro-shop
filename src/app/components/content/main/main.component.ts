@@ -7,6 +7,7 @@ import {
   transition,
   state
 } from '@angular/animations';
+import { SliderService } from 'src/app/services/slider.service';
 
 @Component({
   selector: 'app-main',
@@ -31,35 +32,10 @@ import {
 })
 export class MainComponent implements OnInit {
 
-  slideIndex: number = 0;
-
-  constructor(public dataProvider: DataProviderService) { }
+  constructor(public dataProvider: DataProviderService,
+              public sliderService: SliderService) { }
 
   ngOnInit() {
+    this.sliderService.runAutoScroll();
   }
-
-  getSlide(): number {
-    return this.slideIndex;
-  }
-
-  setSlide(slideIndex: number) {
-    this.slideIndex = slideIndex;
-  }
-
-  increaseIndex() {
-    if (this.slideIndex === 2) {
-      this.slideIndex = 0;
-    } else {
-      this.slideIndex++;
-    }
-  }
-
-  decreaseIndex() {
-    if (this.slideIndex === 0) {
-      this.slideIndex = 2;
-    } else {
-      this.slideIndex--;
-    }
-  }
-
 }

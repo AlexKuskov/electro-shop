@@ -1,26 +1,26 @@
 <main class="main">
     <div class="slider">
         <img class="slider__slide" 
-            [@selectSlide]="getSlide()"
+            [@selectSlide]="sliderService.getSlide()"
             *ngFor="let slide of dataProvider.slides"
             [src]="slide" 
             alt="Slide">
 
-        <div class="arrows prev" (click)="decreaseIndex()"></div>
-        <div class="arrows next" (click)="increaseIndex()"></div>
+        <div sliderButton class="arrows prev" (click)="sliderService.decreaseIndex()"></div>
+        <div sliderButton class="arrows next" (click)="sliderService.increaseIndex()"></div>
         
         <div class="slider__radio-button-wrapper">
             <input class="slider__radio-button" type="radio"
-                   name="slide-trigger" id="first" [checked]="getSlide() === 0">
-            <label class="slider__styled-radio-button" for="first" (click)="setSlide(0)"></label>
+                   name="slide-trigger" id="first" [checked]="sliderService.isFirstButtonChecked()">
+            <label sliderButton class="slider__styled-radio-button" for="first" (click)="sliderService.setSlide(0)"></label>
 
             <input class="slider__radio-button" type="radio"
-                   name="slide-trigger" id="second" [checked]="getSlide() === 1">
-            <label class="slider__styled-radio-button" for="second" (click)="setSlide(1)"></label>
+                   name="slide-trigger" id="second" [checked]="sliderService.isSecondButtonChecked()">
+            <label sliderButton class="slider__styled-radio-button" for="second" (click)="sliderService.setSlide(1)"></label>
 
             <input class="slider__radio-button" type="radio"
-                   name="slide-trigger" id="third" [checked]="getSlide() === 2">
-            <label class="slider__styled-radio-button" for="third" (click)="setSlide(2)"></label>
+                   name="slide-trigger" id="third" [checked]="sliderService.isThirdButtonChecked()">
+            <label sliderButton class="slider__styled-radio-button" for="third" (click)="sliderService.setSlide(2)"></label>
         </div>
     </div>
 
