@@ -10,13 +10,13 @@ import { ContentComponent } from './components/content/content.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchResultComponent } from './components/content/search-result/search-result.component';
-import { FilterComponent } from './components/content/filter/filter.component';
 import { MainComponent } from './components/content/main/main.component';
 import { HeaderCenterComponent } from './components/header/header-center/header-center.component';
 import { CategoryContentComponent } from './components/content/category-content/category-content.component';
 import { ProductsGridComponent } from './components/content/products-grid/products-grid.component';
 import { ProductItemComponent } from './components/content/product-item/product-item.component';
 import { SliderButtonDirective } from './components/content/main/slider-button.directive';
+import { FilterSectionComponent } from './components/content/filter-section/filter-section.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +27,13 @@ import { SliderButtonDirective } from './components/content/main/slider-button.d
     NavigationComponent,
     FooterComponent,
     SearchResultComponent,
-    FilterComponent,
     MainComponent,
     HeaderCenterComponent,
     CategoryContentComponent,
     ProductsGridComponent,
     ProductItemComponent,
-    SliderButtonDirective
+    SliderButtonDirective,
+    FilterSectionComponent
   ],
   imports: [
     BrowserModule,

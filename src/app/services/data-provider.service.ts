@@ -6,8 +6,6 @@ import { ProductItem } from '../model/product-item';
 })
 export class DataProviderService {
 
-  filters: any;
-
   constructor() { }
 
   get categories(): String[] {
@@ -27,6 +25,18 @@ export class DataProviderService {
       "assets/images/slides/slide-1.jpg",
       "assets/images/slides/slide-2.jpg",
       "assets/images/slides/slide-3.jpg"
+    ]
+  }
+
+  get filters(): String[] {
+    return [
+      "Category:",
+      "Manufacturer:",
+      "Price:",
+      "Diagonal:",
+      "OS:",
+      "Screen Size:",
+      "Memory Capacity:"
     ]
   }
 
