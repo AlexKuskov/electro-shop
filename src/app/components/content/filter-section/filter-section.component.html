@@ -6,12 +6,18 @@
 
       <input class="filter-parameter__checkbox" type="checkbox" id="checkbox-{{ i }}">
       <label class="filter-parameter__down-arrow-wrapper" for="checkbox-{{ i }}">
-        <img class="down-arrow-icon" src="assets/images/down-arrow.svg" alt="\/">
+        <img class="down-arrow-icon" src="assets/images/down-arrow.svg" alt="Toggle">
       </label> 
       
       <ul class="filter-parameter__option-list">
-          <li><input class="filter-parameter__option" type="checkbox">Laptops (3)</li>
-          <li>Tablets</li>
+          <li class="filter-parameter__option">
+            <input class="option-checkbox" type="checkbox" id="option-checkbox-{{ i }}">
+            <label class="option-label" for="option-checkbox-{{ i }}">Laptops (3)</label>
+          </li>
+          <li class="filter-parameter__option">
+            <input class="option-checkbox" type="checkbox" id="option-checkbox-{{ i }}">
+            <label class="option-label" for="option-checkbox-{{ i }}">Tablets (2)</label>
+          </li>
       </ul>
   </div>
 
