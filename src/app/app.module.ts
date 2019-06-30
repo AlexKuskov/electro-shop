@@ -17,6 +17,7 @@ import { ProductsGridComponent } from './components/content/products-grid/produc
 import { ProductItemComponent } from './components/content/product-item/product-item.component';
 import { SliderButtonDirective } from './components/content/main/slider-button.directive';
 import { FilterSectionComponent } from './components/content/filter-section/filter-section.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { FilterSectionComponent } from './components/content/filter-section/filt
     ProductsGridComponent,
     ProductItemComponent,
     SliderButtonDirective,
-    FilterSectionComponent
+    FilterSectionComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
