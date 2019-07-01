@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductItem } from '../model/product-item';
+import { Category } from '../model/category';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,15 @@ export class DataProviderService {
 
   constructor() { }
 
-  get categories(): String[] {
+  get categories(): Category[] {
     return [
-      "Laptops",
-      "Tablets",
-      "Phones",
-      "TVs",
-      "E-Books",
-      "Video Game Consoles",
-      "Smart Watches"
+      { title: "Laptops", categoryProducts: this.laptops },
+      { title: "Tablets", categoryProducts: this.tablets },
+      { title: "Phones", categoryProducts: this.phones },
+      { title: "TVs", categoryProducts: this.tvs },
+      { title: "E-Books", categoryProducts: this.eBooks },
+      { title: "Video Game Consoles", categoryProducts: this.videoGameConsoles },
+      { title: "Smart Watches", categoryProducts: this.smartWatches }
     ];
   }
 
