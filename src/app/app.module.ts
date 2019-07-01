@@ -18,6 +18,7 @@ import { ProductItemComponent } from './components/content/product-item/product-
 import { SliderButtonDirective } from './components/content/main/slider-button.directive';
 import { FilterSectionComponent } from './components/content/filter-section/filter-section.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ModalComponent } from './components/modal/modal.component';
     ProductItemComponent,
     SliderButtonDirective,
     FilterSectionComponent,
-    ModalComponent
+    ModalComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
