@@ -13,6 +13,10 @@
     height: 100px;
     width: 226px;
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
 }
 
 .header__cart-icon {

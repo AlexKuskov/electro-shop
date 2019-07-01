@@ -1,8 +1,11 @@
 :host {
+    display: flex;
     width: 100%;
 }
 
 .search-result-container {
     height: 100%;
+    width: 100%;
     padding: 10px 20px;
+    margin-bottom: 30px;
 }

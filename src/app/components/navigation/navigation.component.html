@@ -1,3 +1,5 @@
 <nav class="nav">
-    <div class="nav__category" *ngFor="let category of dataProvider.categories;">{{ category.title }}</div>
+    <div routerLink="/category" class="nav__category" *ngFor="let category of dataProvider.categories;">
+        {{ category.title }}
+    </div>
 </nav>
