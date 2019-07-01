@@ -11,13 +11,13 @@ export class DataProviderService {
 
   get categories(): Category[] {
     return [
-      { title: "Laptops", categoryProducts: this.laptops },
-      { title: "Tablets", categoryProducts: this.tablets },
-      { title: "Phones", categoryProducts: this.phones },
-      { title: "TVs", categoryProducts: this.tvs },
-      { title: "E-Books", categoryProducts: this.eBooks },
-      { title: "Video Game Consoles", categoryProducts: this.videoGameConsoles },
-      { title: "Smart Watches", categoryProducts: this.smartWatches }
+      { title: "Laptops", urlPath: "laptops", categoryProducts: this.laptops },
+      { title: "Tablets", urlPath: "tablets", categoryProducts: this.tablets },
+      { title: "Phones", urlPath: "phones", categoryProducts: this.phones },
+      { title: "TVs", urlPath: "tvs", categoryProducts: this.tvs },
+      { title: "E-Books", urlPath: "eBooks", categoryProducts: this.eBooks },
+      { title: "Video Game Consoles", urlPath: "videoGameConsoles", categoryProducts: this.videoGameConsoles },
+      { title: "Smart Watches", urlPath: "smartWatches", categoryProducts: this.smartWatches }
     ];
   }
 

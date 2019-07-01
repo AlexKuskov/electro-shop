@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './components/content/page-not-found/page-
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'search', component: SearchResultComponent },
-  { path: 'category', component: CategoryContentComponent },
+  { path: 'category/:category-title', component: CategoryContentComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

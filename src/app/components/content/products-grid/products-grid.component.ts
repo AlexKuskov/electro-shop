@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataProviderService } from 'src/app/services/data-provider.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProductItem } from 'src/app/model/product-item';
 
 @Component({
   selector: 'app-products-grid',
@@ -8,7 +8,10 @@ import { DataProviderService } from 'src/app/services/data-provider.service';
 })
 export class ProductsGridComponent implements OnInit {
 
-  constructor(public dataProvider: DataProviderService) { }
+  @Input()
+  productItems: ProductItem[];
+
+  constructor() { }
 
   ngOnInit() {
   }
