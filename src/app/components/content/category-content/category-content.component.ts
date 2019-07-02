@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Category } from 'src/app/model/category';
-import { DataProviderService } from 'src/app/services/data-provider.service';
+import { CategoryContentService } from 'src/app/services/category-content.service';
 
 @Component({
   selector: 'app-category-content',
@@ -12,21 +12,12 @@ export class CategoryContentComponent implements OnInit {
 
   activeCategory: Category;
 
-  constructor(private route: ActivatedRoute, 
-    private dataProvider: DataProviderService) { }
+  constructor(private route: ActivatedRoute,
+    private categoryContentService: CategoryContentService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.setActiveCategory(params['category-title']);
+      this.activeCategory = this.categoryContentService.getActiveCategory(params['category-title']);
     });
   }
-
-  setActiveCategory(categoryTitle: String): void {
-    for (let category of this.dataProvider.categories) {
-      if (categoryTitle === category.urlPath) {
-        this.activeCategory = category;
-      }
-    }
-  }
-
 }
