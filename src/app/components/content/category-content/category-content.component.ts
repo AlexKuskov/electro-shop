@@ -18,7 +18,6 @@ export class CategoryContentComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.setActiveCategory(params['category-title']);
-      console.log(this.activeCategory);
     });
   }
 

@@ -8,15 +8,41 @@
 
 .content__up-button {
     position: fixed;
+    visibility: hidden;
     right: 30px;
     bottom: 30px;
     width: 40px;
     height: 40px;
     border: 2px solid rgb(143, 136, 248);
     border-radius: 100%;
+    opacity: 0;
+    transition: all 0.5s;
     cursor: pointer;
 
     &:focus {
         outline: none;
+    }
+
+    &::before {
+        content: '';
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        width: 15px;
+        height: 15px;
+        border-top: 3px solid;
+        border-left: 3px solid;
+        border-color: rgb(143, 136, 248);
+        transform: rotate(45deg);
+    }
+}
+
+.content__up-button.show-scrollTop {
+    visibility: visible;
+    opacity: 0.7;
+    transition: all 0.5s;
+
+    &:hover {
+        opacity: 1;
     }
 }

@@ -1,4 +1,5 @@
 <div class="content">
   <router-outlet></router-outlet>
-  <button class="content__up-button">up ^</button>
+  <button class="content__up-button" (click)="scrollToTop()"
+         [ngClass]="{'show-scrollTop': windowScrolled}"></button>
 </div>
