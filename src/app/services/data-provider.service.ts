@@ -8,29 +8,17 @@ import { Category } from '../model/category';
 export class DataProviderService {
 
   constructor() { }
-
-  get categories(): Category[] {
-    return [
-      { title: "Laptops", urlPath: "laptops", categoryProducts: this.laptops },
-      { title: "Tablets", urlPath: "tablets", categoryProducts: this.tablets },
-      { title: "Phones", urlPath: "phones", categoryProducts: this.phones },
-      { title: "TVs", urlPath: "tvs", categoryProducts: this.tvs },
-      { title: "E-Books", urlPath: "eBooks", categoryProducts: this.eBooks },
-      { title: "Video Game Consoles", urlPath: "videoGameConsoles", categoryProducts: this.videoGameConsoles },
-      { title: "Smart Watches", urlPath: "smartWatches", categoryProducts: this.smartWatches }
-    ];
-  }
-
-  get slides(): String[] {
-    return [
+  
+  slides: String[] =
+    [
       "assets/images/slides/slide-1.jpg",
       "assets/images/slides/slide-2.jpg",
       "assets/images/slides/slide-3.jpg"
-    ]
-  }
+    ];
+  
 
-  get parameters(): String[] {
-    return [
+  parameters: String[] =
+    [
       "Category:",
       "Manufacturer:",
       "Diagonal:",
@@ -38,10 +26,9 @@ export class DataProviderService {
       "Screen Size:",
       "Memory Capacity:"
     ];
-  }
 
-  get laptops(): ProductItem[] {
-    return [
+  laptops: ProductItem[] =
+    [
       {
         image: "assets/images/products/laptops/laptop-1.jpg",
         title: "Dell Inspiron 3576",
@@ -113,10 +100,9 @@ export class DataProviderService {
         manufacturer: "Lenovo"
       }
     ];
-  }
 
-  get tablets(): ProductItem[] {
-    return [
+  tablets: ProductItem[] =
+    [
       {
         image: "assets/images/products/tablets/tablet-1.jpg",
         title: "Yuntab GTT89",
@@ -158,10 +144,9 @@ export class DataProviderService {
         manufacturer: "ASUS"
       }
     ];
-  }
 
-  get phones(): ProductItem[] {
-    return [
+  phones: ProductItem[] =
+    [
       {
         image: "assets/images/products/phones/phone-1.jpg",
         title: "Samsung G10",
@@ -213,10 +198,9 @@ export class DataProviderService {
         manufacturer: "Honor"
       }
     ];
-  }
 
-  get tvs(): ProductItem[] {
-    return [
+  tvs: ProductItem[] =
+    [
       {
         image: "assets/images/products/tvs/tv-1.jpg",
         title: "Samsung G599 Full HD",
@@ -268,10 +252,9 @@ export class DataProviderService {
         manufacturer: "Panasonic"
       }
     ];
-  }
 
-  get eBooks(): ProductItem[] {
-    return [
+  eBooks: ProductItem[] =
+    [
       {
         image: "assets/images/products/ebooks/ebook-1.jpg",
         title: "PocketBook Touch Lux",
@@ -303,10 +286,9 @@ export class DataProviderService {
         manufacturer: "Amazon"
       }
     ];
-  }
 
-  get videoGameConsoles(): ProductItem[] {
-    return [
+  videoGameConsoles: ProductItem[] =
+    [
       {
         image: "assets/images/products/videoGameConsoles/console-1.jpg",
         title: "PlayStation 4 Pro",
@@ -398,10 +380,9 @@ export class DataProviderService {
         manufacturer: "Microsoft"
       }
     ];
-  }
 
-  get smartWatches(): ProductItem[] {
-    return [
+  smartWatches: ProductItem[] =
+    [
       {
         image: "assets/images/products/smartWatches/watch-1.jpg",
         title: "Amazfit Verge Gray",
@@ -453,10 +434,20 @@ export class DataProviderService {
         manufacturer: "IWO"
       }
     ];
-  }
 
-  get mostPopular(): ProductItem[] {
-    return [
+  categories: Category[] =
+    [
+      { title: "Laptops", urlPath: "laptops", categoryProducts: this.laptops },
+      { title: "Tablets", urlPath: "tablets", categoryProducts: this.tablets },
+      { title: "Phones", urlPath: "phones", categoryProducts: this.phones },
+      { title: "TVs", urlPath: "tvs", categoryProducts: this.tvs },
+      { title: "E-Books", urlPath: "eBooks", categoryProducts: this.eBooks },
+      { title: "Video Game Consoles", urlPath: "videoGameConsoles", categoryProducts: this.videoGameConsoles },
+      { title: "Smart Watches", urlPath: "smartWatches", categoryProducts: this.smartWatches }
+    ];
+
+  mostPopular: ProductItem[] =
+    [
       this.laptops[1],
       this.laptops[4],
       this.tablets[2],
@@ -467,7 +458,6 @@ export class DataProviderService {
       this.eBooks[1],
       this.videoGameConsoles[0],
       this.smartWatches[1]
-    ]
-  }
+    ];
 
 }

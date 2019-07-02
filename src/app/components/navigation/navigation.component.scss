@@ -31,3 +31,11 @@
         background-color: rgb(207, 192, 243);
     }
 }
+
+.nav__category.active {
+    background-color: rgb(207, 192, 243);
+
+    &:focus {
+        outline: none;
+    }
+}
