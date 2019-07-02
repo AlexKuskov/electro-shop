@@ -12,15 +12,17 @@ export class CategoryContentComponent implements OnInit {
 
   activeCategory: Category;
 
-  constructor(private route: ActivatedRoute, private dataProvider: DataProviderService) { }
+  constructor(private route: ActivatedRoute, 
+    private dataProvider: DataProviderService) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.setActiveCategory(params['category-title']);
+      console.log(this.activeCategory);
     });
   }
 
-  setActiveCategory(categoryTitle: String) {
+  setActiveCategory(categoryTitle: String): void {
     for (let category of this.dataProvider.categories) {
       if (categoryTitle === category.urlPath) {
         this.activeCategory = category;

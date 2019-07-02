@@ -1,5 +1,12 @@
-<app-filter-section></app-filter-section>
-<div class="category-content">
-  <h1>{{ activeCategory.title }}</h1>
-  <app-products-grid [productItems]="activeCategory.categoryProducts"></app-products-grid>
-</div>
+<ng-template [ngIf]="activeCategory" [ngIfElse]="elseBlock">
+  <app-filter-section></app-filter-section>
+  <div class="category-content">
+    <h1>{{ activeCategory.title }}</h1>
+    <app-products-grid [productItems]="activeCategory.categoryProducts"></app-products-grid>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="page-not-found">
+    Error 404: Page not found.
+  </div>
+</ng-template>
