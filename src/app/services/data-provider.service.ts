@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductItem } from '../model/product-item';
 import { Category } from '../model/category';
+import { Parameter } from '../model/parameter';
 
 @Injectable({
   providedIn: 'root'
@@ -9,15 +10,14 @@ export class DataProviderService {
 
   constructor() { }
   
-  slides: String[] =
+  slides: string[] =
     [
       "assets/images/slides/slide-1.jpg",
       "assets/images/slides/slide-2.jpg",
       "assets/images/slides/slide-3.jpg"
     ];
-  
 
-  parameters: String[] =
+  parameterTitles: string[] =
     [
       "Category:",
       "Manufacturer:",

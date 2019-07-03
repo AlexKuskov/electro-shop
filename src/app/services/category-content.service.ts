@@ -9,7 +9,7 @@ export class CategoryContentService {
 
   constructor(private dataProvider: DataProviderService) { }
 
-  getActiveCategory(categoryTitle: String): Category {
+  getActiveCategory(categoryTitle: string): Category {
     for (let category of this.dataProvider.categories) {
       if (categoryTitle === category.urlPath) {
         return category;

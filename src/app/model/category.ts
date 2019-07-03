@@ -1,7 +1,7 @@
 import { ProductItem } from './product-item';
 
 export class Category {
-    title: String;
-    urlPath: String;
+    title: string;
+    urlPath: string;
     categoryProducts: ProductItem[];
 }

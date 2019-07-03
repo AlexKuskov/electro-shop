@@ -1,22 +1,25 @@
 <aside class="filter-section">
-  <div class="filter-parameter" *ngFor="let parameter of dataProvider.parameters; let i = index;">
+  <div class="filter-parameter" *ngFor="let parameter of parameters; let parameterIndex = index;">
       <div class="filter-parameter__title">
-        {{ parameter }}
+        {{ parameter.title }}
       </div> 
 
-      <input class="filter-parameter__checkbox" type="checkbox" id="checkbox-{{ i }}">
-      <label class="filter-parameter__down-arrow-wrapper" for="checkbox-{{ i }}">
+      <input class="filter-parameter__checkbox" type="checkbox" id="checkbox-{{ parameterIndex }}">
+      <label class="filter-parameter__down-arrow-wrapper" for="checkbox-{{ parameterIndex }}">
         <img class="down-arrow-icon" src="assets/images/icons/down-arrow.svg" alt="Toggle">
       </label> 
       
       <ul class="filter-parameter__option-list">
-          <li class="filter-parameter__option">
-            <input class="option-checkbox" type="checkbox" id="option-checkbox-{{ i }}">
-            <label class="option-label" for="option-checkbox-{{ i }}">Laptops (3)</label>
-          </li>
-          <li class="filter-parameter__option">
-            <input class="option-checkbox" type="checkbox" id="option-checkbox-{{ i }}">
-            <label class="option-label" for="option-checkbox-{{ i }}">Tablets (2)</label>
+          <li class="filter-parameter__option"
+             *ngFor="let itemTitle of getItemTitles(parameter); let itemIndex = index;">
+
+            <input class="option-checkbox" type="checkbox"
+                   id="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
+            <label class="option-label" for="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
+              {{ itemTitle }} 
+              <ng-template [ngIf]="parameter.items[itemTitle] > 1">({{ parameter.items[itemTitle] }})</ng-template>
+            </label>
+
           </li>
       </ul>
   </div>
