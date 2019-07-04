@@ -2,5 +2,5 @@
 <div class="search-result-container">
     <div class="elements-found-number">Elements were found by your request: N</div>
     <div class="request">asus</div>
-    <app-products-grid></app-products-grid>
+    <app-products-grid [productItems]="searchService.getSearchResult()"></app-products-grid>
 </div>
