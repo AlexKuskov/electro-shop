@@ -287,10 +287,10 @@ export class DataProviderService {
       }
     ];
 
-  videoGameConsoles: ProductItem[] =
+  gamingConsoles: ProductItem[] =
     [
       {
-        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        image: "assets/images/products/gamingConsoles/console-1.jpg",
         title: "PlayStation 4 Pro",
         price: "10 799",
         diagonal: "",
@@ -300,7 +300,7 @@ export class DataProviderService {
         manufacturer: "Sony"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-2.jpg",
+        image: "assets/images/products/gamingConsoles/console-2.jpg",
         title: "Microsoft XBOX One",
         price: "8 799",
         diagonal: "",
@@ -310,7 +310,7 @@ export class DataProviderService {
         manufacturer: "Microsoft"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        image: "assets/images/products/gamingConsoles/console-1.jpg",
         title: "PlayStation 4",
         price: "9 999",
         diagonal: "",
@@ -320,7 +320,7 @@ export class DataProviderService {
         manufacturer: "Sony"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        image: "assets/images/products/gamingConsoles/console-1.jpg",
         title: "PlayStation 3",
         price: "6 599",
         diagonal: "",
@@ -330,7 +330,7 @@ export class DataProviderService {
         manufacturer: "Sony"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-2.jpg",
+        image: "assets/images/products/gamingConsoles/console-2.jpg",
         title: "Microsoft XBOX 360",
         price: "5 799",
         diagonal: "",
@@ -340,7 +340,7 @@ export class DataProviderService {
         manufacturer: "Microsoft"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        image: "assets/images/products/gamingConsoles/console-1.jpg",
         title: "PlayStation 2",
         price: "2 199",
         diagonal: "",
@@ -350,7 +350,7 @@ export class DataProviderService {
         manufacturer: "Sony"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        image: "assets/images/products/gamingConsoles/console-1.jpg",
         title: "PlayStation 4 Slim",
         price: "13 199",
         diagonal: "",
@@ -360,7 +360,7 @@ export class DataProviderService {
         manufacturer: "Sony"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-1.jpg",
+        image: "assets/images/products/gamingConsoles/console-1.jpg",
         title: "PlayStation 1",
         price: "999",
         diagonal: "",
@@ -370,7 +370,7 @@ export class DataProviderService {
         manufacturer: "Sony"
       },
       {
-        image: "assets/images/products/videoGameConsoles/console-2.jpg",
+        image: "assets/images/products/gamingConsoles/console-2.jpg",
         title: "Microsoft XBOX Pro",
         price: "3 799",
         diagonal: "",
@@ -442,7 +442,7 @@ export class DataProviderService {
       { title: "Phones", urlPath: "phones", categoryProducts: this.phones },
       { title: "TVs", urlPath: "tvs", categoryProducts: this.tvs },
       { title: "E-Books", urlPath: "eBooks", categoryProducts: this.eBooks },
-      { title: "Video Game Consoles", urlPath: "videoGameConsoles", categoryProducts: this.videoGameConsoles },
+      { title: "Gaming Consoles", urlPath: "gamingConsoles", categoryProducts: this.gamingConsoles },
       { title: "Smart Watches", urlPath: "smartWatches", categoryProducts: this.smartWatches }
     ];
 
@@ -456,7 +456,7 @@ export class DataProviderService {
       this.tvs[3],
       this.eBooks[0],
       this.eBooks[1],
-      this.videoGameConsoles[0],
+      this.gamingConsoles[0],
       this.smartWatches[1]
     ];
 
