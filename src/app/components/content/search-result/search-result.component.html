@@ -1,6 +1,10 @@
-<app-filter-section></app-filter-section>
+<app-filter-section [parameters]="searchService.parameters"></app-filter-section>
 <div class="search-result-container">
-    <div class="elements-found-number">Elements were found by your request: N</div>
-    <div class="request">asus</div>
-    <app-products-grid [productItems]="searchService.getSearchResult()"></app-products-grid>
+    <h1 class="elements-found-number">
+        Elements were found by your request 
+        <span *ngIf="searchService.searchValue">"{{ searchService.searchValue }}"</span>: 
+        {{ searchService.searchResult.length }}
+    </h1>
+    
+    <app-products-grid [productItems]="searchService.searchResult"></app-products-grid>
 </div>

@@ -27,7 +27,7 @@ export class FilterService {
     return items;
   }
 
-  getParameters() {
+  getCategoryParameters() {
     let parameters: Parameter[] = [];
 
     this.getAllParameterItems().forEach((parameterItem, index) => {

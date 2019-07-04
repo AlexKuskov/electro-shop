@@ -17,6 +17,7 @@ export class HeaderCenterComponent implements OnInit {
 
   onSubmit() {
     this.searchService.searchValue = this.searchForm.form.value.q;
+    this.searchService.getSearchResult();
   }
 
 }
