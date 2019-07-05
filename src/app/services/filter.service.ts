@@ -2,22 +2,18 @@ import { Injectable } from '@angular/core';
 import { Parameter } from '../model/parameter';
 import { ProductItem } from '../model/product-item';
 import { DataProviderService } from './data-provider.service';
-import { Category } from '../model/category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilterService {
 
-  activeCategory: Category;
-
   constructor(public dataProvider: DataProviderService) { }
 
-  getAllParameterItems() {
+  getAllParameterItems(categoryProducts: ProductItem[], categoryTitles: string[]) {
     let items: string[][] = [];
-    let categoryProducts: ProductItem[] = this.activeCategory.categoryProducts;
 
-    items.push(this.dataProvider.categories.map(category => category.title));
+    items.push(categoryTitles);
     items.push(categoryProducts.map(categoryProduct => categoryProduct.manufacturer));
     items.push(categoryProducts.map(categoryProduct => categoryProduct.diagonal));
     items.push(categoryProducts.map(categoryProduct => categoryProduct.os));
@@ -27,10 +23,10 @@ export class FilterService {
     return items;
   }
 
-  getCategoryParameters() {
+  getFilterParameters(items: string[][]) {
     let parameters: Parameter[] = [];
 
-    this.getAllParameterItems().forEach((parameterItem, index) => {
+    items.forEach((parameterItem, index) => {
       parameterItem = parameterItem.filter(item => { return !!item });
       
       if (parameterItem.length) {

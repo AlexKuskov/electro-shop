@@ -22,8 +22,9 @@ export class CategoryContentComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.activeCategory = this.categoryContentService.getActiveCategory(params['category-title']);
-      this.filterService.activeCategory = this.categoryContentService.getActiveCategory(params['category-title']);
-      this.parameters = this.filterService.getCategoryParameters();
+      this.parameters = this.filterService.getFilterParameters(
+        this.filterService.getAllParameterItems(this.activeCategory.categoryProducts, [])
+      );
     });
   }
 }

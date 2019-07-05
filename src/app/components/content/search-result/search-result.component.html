@@ -3,8 +3,8 @@
     <h1 class="elements-found-number">
         Elements were found by your request 
         <span *ngIf="searchService.searchValue">"{{ searchService.searchValue }}"</span>: 
-        {{ searchService.searchResult.length }}
+        {{ searchService.searchedProductItems.length }}
     </h1>
     
-    <app-products-grid [productItems]="searchService.searchResult"></app-products-grid>
+    <app-products-grid [productItems]="searchService.searchedProductItems"></app-products-grid>
 </div>

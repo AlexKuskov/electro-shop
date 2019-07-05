@@ -3,73 +3,44 @@ import { DataProviderService } from './data-provider.service';
 import { ProductItem } from '../model/product-item';
 import { Category } from '../model/category';
 import { Parameter } from '../model/parameter';
+import { FilterService } from './filter.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  searchValue: string = '';
+  searchValue: string;
   parameters: Parameter[] = [];
-  searchResult: ProductItem[] = [];
 
-  constructor(private dataProvider: DataProviderService) { }
+  searchedProductItems: ProductItem[] = [];
+  categoryTitles: string[] = [];
+
+  constructor(private dataProvider: DataProviderService,
+              private filterService: FilterService) { }
 
   getSearchResult(): void {
-    this.searchResult = [];
+    this.searchedProductItems = [];
+    this.categoryTitles = [];
 
     this.dataProvider.categories.forEach(category => {
-      this.iterateCategoryProducts(category);
+      this.fillSearchedProductItems(category);
     });
 
-    this.getParametersBySearchResult(this.searchResult);
+    this.parameters = this.filterService.getFilterParameters(
+      this.filterService.getAllParameterItems(this.searchedProductItems, this.categoryTitles)
+    );
   }
 
-  iterateCategoryProducts(category: Category): void {
-    //add category title
+  fillSearchedProductItems(category: Category): void {
     category.categoryProducts.forEach(categoryProduct => {
-      
       let lowerProductTitle: string = categoryProduct.title.toLowerCase();
       let lowerSearchValue: string = this.searchValue.toLowerCase();
       
       if(lowerProductTitle.includes(lowerSearchValue)) {
-        this.searchResult.push(categoryProduct);
+        this.searchedProductItems.push(categoryProduct);
+        this.categoryTitles.push(category.title);
       }
     });
-  }
-
-  getParametersBySearchResult(searchResult: ProductItem[]) {
-    this.parameters = [];
-    let items: string[][] = [];
-
-    items.push(this.dataProvider.categories.map(category => category.title));
-    items.push(searchResult.map(product => product.manufacturer));
-    items.push(searchResult.map(product => product.diagonal));
-    items.push(searchResult.map(product => product.os));
-    items.push(searchResult.map(product => product.screenSize));
-    items.push(searchResult.map(product => product.memoryCapacity));
-
-    items.forEach((parameterItem, index) => {
-      parameterItem = parameterItem.filter(item => { return !!item });
-      
-      if (parameterItem.length) {
-        this.parameters.push(
-          { 
-            title: this.dataProvider.parameterTitles[index], 
-            items: this.getParameterItemsObject(parameterItem)
-          }
-        );
-      }
-    });
-  }
-
-  getParameterItemsObject(items: string[]): Object {
-    let parameterItems: Object = {};
-
-    items.forEach(item => {
-      parameterItems[item] = parameterItems[item] ? parameterItems[item] + 1 : 1;
-    });
-
-    return parameterItems;
   }
 }
