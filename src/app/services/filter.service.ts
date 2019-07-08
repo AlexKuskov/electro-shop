@@ -8,6 +8,8 @@ import { DataProviderService } from './data-provider.service';
 })
 export class FilterService {
 
+  productFilters: string[] = [];
+
   constructor(public dataProvider: DataProviderService) { }
 
   getAllParameterItems(categoryProducts: ProductItem[], categoryTitles: string[]) {
@@ -50,5 +52,12 @@ export class FilterService {
     });
 
     return parameterItems;
+  }
+
+  getFilteredProductItems(productItems: ProductItem[], productFilters: string[]) {
+    return productItems.filter(productItem => {
+      return productFilters.every(productFilter => 
+        Object.values(productItem).includes(productFilter));
+    });
   }
 }

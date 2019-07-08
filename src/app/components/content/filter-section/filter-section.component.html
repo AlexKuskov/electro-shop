@@ -13,7 +13,7 @@
           <li class="filter-parameter__option"
              *ngFor="let itemTitle of getItemTitles(parameter); let itemIndex = index;">
 
-            <input class="option-checkbox" type="checkbox"
+            <input class="option-checkbox" type="checkbox" (change)="getCheckedItemTitle(itemTitle)"
                    id="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
             <label class="option-label" for="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
               {{ itemTitle }} 
