@@ -26,9 +26,23 @@
 
   <div class="filter-parameter filter-parameter--price">
       <div class="filter-parameter__title">Price:</div>
-      <input class="price-field" maxlength="6" type="text" name="min">
+      <input 
+        #minPrice 
+        class="price-field" 
+        maxlength="6" 
+        type="text" 
+        name="min" 
+        value="0" 
+        (click)="minPrice.select()">
        - 
-      <input class="price-field" maxlength="6" type="text" name="max">
-      <button class="submit-price">OK</button>
+      <input 
+        #maxPrice 
+        class="price-field" 
+        maxlength="6" 
+        type="text" 
+        name="max" 
+        value="999999" 
+        (click)="maxPrice.select()">
+      <button class="submit-price" (click)="addPriceRangeParameter()">OK</button>
   </div>
 </aside>

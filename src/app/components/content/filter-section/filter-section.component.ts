@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
 import { CategoryContentService } from 'src/app/services/category-content.service';
@@ -10,8 +10,13 @@ import { CategoryContentService } from 'src/app/services/category-content.servic
 })
 export class FilterSectionComponent implements OnInit {
 
+  @ViewChild('minPrice', {read: ElementRef, static: false }) minPrice: ElementRef;
+  @ViewChild('maxPrice', {read: ElementRef, static: false }) maxPrice: ElementRef;
+
   @Input()
   parameters: Parameter[];
+
+  productFilters: string[][] = this.filterService.productFilters;
 
   constructor(private filterService: FilterService,
               private categoryContentService: CategoryContentService) { }
@@ -25,13 +30,14 @@ export class FilterSectionComponent implements OnInit {
 
   getCheckedItemTitle(itemTitle: string, parameterIndex: number) {
     //TODO: divide this method
-    let productFilters: string[][] = this.filterService.productFilters;
+    this.productFilters = this.filterService.productFilters;
+    
 
-    if (productFilters[parameterIndex] === undefined) {
-      productFilters[parameterIndex] = [];
+    if (this.productFilters[parameterIndex] === undefined) {
+      this.productFilters[parameterIndex] = [];
     }
 
-    let currentProductFilter: string[] = productFilters[parameterIndex];
+    let currentProductFilter: string[] = this.productFilters[parameterIndex];
 
     if (currentProductFilter.includes(itemTitle)) {
       currentProductFilter.splice(currentProductFilter.indexOf(itemTitle), 1);
@@ -39,11 +45,30 @@ export class FilterSectionComponent implements OnInit {
       currentProductFilter.push(itemTitle);
     }
 
-    productFilters = productFilters.filter(value => !!value && value.length);
+    this.addPriceRangeParameter();
     
+    this.productFilters = this.productFilters.filter(value => !!value && value.length);
+
     this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
       this.categoryContentService.activeCategory.categoryProducts, 
-      productFilters,
+      this.productFilters,
+      0
+    );
+  }
+
+  addPriceRangeParameter() {
+    this.filterService.productFilters[this.parameters.length] = 
+    [
+      this.minPrice.nativeElement.value, 
+      this.maxPrice.nativeElement.value
+    ];
+
+    this.productFilters = this.filterService.productFilters;
+    this.productFilters = this.productFilters.filter(value => !!value && value.length);
+ 
+    this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
+      this.categoryContentService.activeCategory.categoryProducts, 
+      this.productFilters,
       0
     );
   }

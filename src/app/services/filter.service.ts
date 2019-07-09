@@ -58,6 +58,16 @@ export class FilterService {
     if (productFilterIndex === productFilters.length) {
       return productItems;
     }
+
+    if (productFilterIndex === productFilters.length - 1) {
+      return productItems.filter(productItem => {
+        let productPrice: number = +productItem.price.replace(' ', '');
+        let filterPrice: string[] = productFilters[productFilterIndex];
+
+        return productPrice >= +filterPrice[0] && 
+          productPrice <= +filterPrice[1];
+      });
+    }    
     
     let filteredProductItems: ProductItem[] = productItems.filter(productItem => {
       return productFilters[productFilterIndex].some(productFilter => 
