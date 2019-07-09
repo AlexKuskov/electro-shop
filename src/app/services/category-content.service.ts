@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { DataProviderService } from './data-provider.service';
 import { Category } from '../model/category';
+import { ProductItem } from '../model/product-item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryContentService {
+
+  productItems: ProductItem[] = this.dataProvider.laptops;
 
   constructor(private dataProvider: DataProviderService) { }
 

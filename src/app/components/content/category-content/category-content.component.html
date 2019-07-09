@@ -1,8 +1,8 @@
-<ng-template [ngIf]="activeCategory" [ngIfElse]="elseBlock">
+<ng-template [ngIf]="categoryContentService.productItems" [ngIfElse]="elseBlock">
   <app-filter-section [parameters]="parameters"></app-filter-section>
   <div class="category-content">
-    <h1>{{ activeCategory.title }}</h1>
-    <app-products-grid [productItems]="activeCategory.categoryProducts"></app-products-grid>
+    <h1>{{ activeCategoryTitle }}</h1>
+    <app-products-grid [productItems]="categoryContentService.productItems"></app-products-grid>
   </div>
 </ng-template>
 <ng-template #elseBlock>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
 import { DataProviderService } from 'src/app/services/data-provider.service';
+import { CategoryContentService } from 'src/app/services/category-content.service';
 
 @Component({
   selector: 'app-filter-section',
@@ -14,7 +15,8 @@ export class FilterSectionComponent implements OnInit {
   parameters: Parameter[];
 
   constructor(private filterService: FilterService,
-              private dataProvider: DataProviderService) { }
+              private dataProvider: DataProviderService,
+              private categoryContentService: CategoryContentService) { }
 
   ngOnInit() {
   }
@@ -23,22 +25,29 @@ export class FilterSectionComponent implements OnInit {
     return Object.keys(parameter.items);
   }
 
-  getCheckedItemTitle(itemTitle: string) {
-    let productFilters: string[] = this.filterService.productFilters;
-    let productFilts: Object = {
-      manufacturer: [],
-      diagonal: [],
-      os: [],
-      screenSize: [],
-      memoryCapacity: [],
-      price: ''
+  getCheckedItemTitle(itemTitle: string, parameterIndex: number) {
+    //TODO: divide this method
+    let productFilters: string[][] = this.filterService.productFilters;
+
+    if (productFilters[parameterIndex] === undefined) {
+      productFilters[parameterIndex] = [];
     }
 
-    if (productFilters.includes(itemTitle)) {
-      productFilters.splice(productFilters.indexOf(itemTitle), 1);
+    let currentProductFilter: string[] = productFilters[parameterIndex];
+
+    if (currentProductFilter.includes(itemTitle)) {
+      currentProductFilter.splice(currentProductFilter.indexOf(itemTitle), 1);
     } else {
-      productFilters.push(itemTitle);
+      currentProductFilter.push(itemTitle);
     }
+
+    productFilters = productFilters.filter(value => !!value && value.length);
+    
+    this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
+      this.dataProvider.laptops, 
+      productFilters,
+      0
+    );
   }
 
 }

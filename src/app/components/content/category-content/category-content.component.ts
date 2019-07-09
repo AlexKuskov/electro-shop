@@ -4,6 +4,7 @@ import { Category } from 'src/app/model/category';
 import { CategoryContentService } from 'src/app/services/category-content.service';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
+import { ProductItem } from 'src/app/model/product-item';
 
 @Component({
   selector: 'app-category-content',
@@ -12,7 +13,7 @@ import { FilterService } from 'src/app/services/filter.service';
 })
 export class CategoryContentComponent implements OnInit {
 
-  activeCategory: Category;
+  activeCategoryTitle: string;
   parameters: Parameter[];
 
   constructor(private route: ActivatedRoute,
@@ -21,9 +22,10 @@ export class CategoryContentComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.activeCategory = this.categoryContentService.getActiveCategory(params['category-title']);
+      let activeCategory: Category = this.categoryContentService.getActiveCategory(params['category-title']);
+      this.activeCategoryTitle = activeCategory.title;
       this.parameters = this.filterService.getFilterParameters(
-        this.filterService.getAllParameterItems(this.activeCategory.categoryProducts, [])
+        this.filterService.getAllParameterItems(activeCategory.categoryProducts, [])
       );
       this.filterService.productFilters = [];
     });

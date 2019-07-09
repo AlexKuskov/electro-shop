@@ -8,7 +8,7 @@ import { DataProviderService } from './data-provider.service';
 })
 export class FilterService {
 
-  productFilters: string[] = [];
+  productFilters: string[][] = [];
 
   constructor(public dataProvider: DataProviderService) { }
 
@@ -54,10 +54,18 @@ export class FilterService {
     return parameterItems;
   }
 
-  getFilteredProductItems(productItems: ProductItem[], productFilters: string[]) {
-    return productItems.filter(productItem => {
-      return productFilters.every(productFilter => 
+  getFilteredProductItems(productItems: ProductItem[], productFilters: string[][], productFilterIndex: number) {
+    if (productFilterIndex === productFilters.length) {
+      return productItems;
+    }
+    
+    let filteredProductItems: ProductItem[] = productItems.filter(productItem => {
+      return productFilters[productFilterIndex].some(productFilter => 
         Object.values(productItem).includes(productFilter));
     });
+
+    productFilterIndex++;
+
+    return this.getFilteredProductItems(filteredProductItems, productFilters, productFilterIndex);
   }
 }
