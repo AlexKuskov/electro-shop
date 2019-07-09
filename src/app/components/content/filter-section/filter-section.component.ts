@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
-import { DataProviderService } from 'src/app/services/data-provider.service';
 import { CategoryContentService } from 'src/app/services/category-content.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class FilterSectionComponent implements OnInit {
   parameters: Parameter[];
 
   constructor(private filterService: FilterService,
-              private dataProvider: DataProviderService,
               private categoryContentService: CategoryContentService) { }
 
   ngOnInit() {
@@ -44,7 +42,7 @@ export class FilterSectionComponent implements OnInit {
     productFilters = productFilters.filter(value => !!value && value.length);
     
     this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
-      this.dataProvider.laptops, 
+      this.categoryContentService.activeCategory.categoryProducts, 
       productFilters,
       0
     );

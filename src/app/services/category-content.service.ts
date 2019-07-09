@@ -8,7 +8,8 @@ import { ProductItem } from '../model/product-item';
 })
 export class CategoryContentService {
 
-  productItems: ProductItem[] = this.dataProvider.laptops;
+  activeCategory: Category = this.dataProvider.categories[0];
+  productItems: ProductItem[] = this.activeCategory.categoryProducts;
 
   constructor(private dataProvider: DataProviderService) { }
 

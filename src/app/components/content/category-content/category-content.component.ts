@@ -4,7 +4,6 @@ import { Category } from 'src/app/model/category';
 import { CategoryContentService } from 'src/app/services/category-content.service';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
-import { ProductItem } from 'src/app/model/product-item';
 
 @Component({
   selector: 'app-category-content',
@@ -23,7 +22,9 @@ export class CategoryContentComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       let activeCategory: Category = this.categoryContentService.getActiveCategory(params['category-title']);
+      this.categoryContentService.activeCategory = activeCategory;
       this.activeCategoryTitle = activeCategory.title;
+      this.categoryContentService.productItems = activeCategory.categoryProducts;
       this.parameters = this.filterService.getFilterParameters(
         this.filterService.getAllParameterItems(activeCategory.categoryProducts, [])
       );
