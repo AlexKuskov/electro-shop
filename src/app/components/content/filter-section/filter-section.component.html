@@ -14,7 +14,7 @@
              *ngFor="let itemTitle of getItemTitles(parameter); let itemIndex = index;">
 
             <input class="option-checkbox" type="checkbox" (change)="getCheckedItemTitle(itemTitle, parameterIndex)"
-                   id="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
+                   id="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}" [checked]="isChecked(itemTitle)">
             <label class="option-label" for="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
               {{ itemTitle }} 
               <ng-template [ngIf]="parameter.items[itemTitle] > 1">({{ parameter.items[itemTitle] }})</ng-template>

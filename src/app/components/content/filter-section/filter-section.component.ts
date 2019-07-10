@@ -27,13 +27,13 @@ export class FilterSectionComponent implements OnInit {
 
   getItemTitles(parameter: Parameter): string[] {
     return Object.keys(parameter.items);
-    // .filter(item => {
-    //   if (!this.filterService.productFilters.length) return true;
-    //   return this.filterService.productFilters.some(productFilter => productFilter.includes(item));
-    // });
   }
 
-  getCheckedItemTitle(itemTitle: string, parameterIndex: number) {
+  isChecked(itemTitle: string): boolean {
+    return this.filterService.productFilters.some(productFilter => productFilter.includes(itemTitle));
+  }
+
+  getCheckedItemTitle(itemTitle: string, parameterIndex: number): void {
     //TODO: divide this method
     this.productFilters = this.filterService.productFilters;
 
@@ -57,7 +57,7 @@ export class FilterSectionComponent implements OnInit {
     );
   }
 
-  addPriceRangeParameter() {
+  addPriceRangeParameter(): void {
     this.filterService.productFilters[this.parameters.length] = 
     [
       this.minPrice.nativeElement.value, 
