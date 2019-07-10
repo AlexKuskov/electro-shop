@@ -17,6 +17,7 @@ export class FilterSectionComponent implements OnInit {
   parameters: Parameter[];
 
   productFilters: string[][] = this.filterService.productFilters;
+  parameterCheckedItems: string[] = [];
 
   constructor(private filterService: FilterService,
               private categoryContentService: CategoryContentService) { }
@@ -26,12 +27,15 @@ export class FilterSectionComponent implements OnInit {
 
   getItemTitles(parameter: Parameter): string[] {
     return Object.keys(parameter.items);
+    // .filter(item => {
+    //   if (!this.filterService.productFilters.length) return true;
+    //   return this.filterService.productFilters.some(productFilter => productFilter.includes(item));
+    // });
   }
 
   getCheckedItemTitle(itemTitle: string, parameterIndex: number) {
     //TODO: divide this method
     this.productFilters = this.filterService.productFilters;
-    
 
     if (this.productFilters[parameterIndex] === undefined) {
       this.productFilters[parameterIndex] = [];
@@ -46,13 +50,10 @@ export class FilterSectionComponent implements OnInit {
     }
 
     this.addPriceRangeParameter();
-    
-    this.productFilters = this.productFilters.filter(value => !!value && value.length);
 
-    this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
-      this.categoryContentService.activeCategory.categoryProducts, 
-      this.productFilters,
-      0
+    this.parameters = this.filterService.getFilterParameters(
+      this.filterService.getAllParameterItems(this.categoryContentService.productItems, []),
+      this.parameters[parameterIndex]
     );
   }
 

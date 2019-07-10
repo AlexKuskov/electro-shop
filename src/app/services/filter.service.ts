@@ -25,19 +25,23 @@ export class FilterService {
     return items;
   }
 
-  getFilterParameters(items: string[][]) {
+  getFilterParameters(items: string[][], lastChangedParameter: Parameter) {
     let parameters: Parameter[] = [];
 
     items.forEach((parameterItem, index) => {
       parameterItem = parameterItem.filter(item => { return !!item });
       
       if (parameterItem.length) {
-        parameters.push(
-          { 
-            title: this.dataProvider.parameterTitles[index], 
-            items: this.getParameterItemsObject(parameterItem)
-          }
-        );
+        if (lastChangedParameter.title === this.dataProvider.parameterTitles[index]) {
+          parameters.push(lastChangedParameter);
+        } else {
+          parameters.push(
+            { 
+              title: this.dataProvider.parameterTitles[index], 
+              items: this.getParameterItemsObject(parameterItem)
+            }
+          );
+        }
       }
     });
 

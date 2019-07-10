@@ -26,7 +26,8 @@ export class CategoryContentComponent implements OnInit {
       this.activeCategoryTitle = activeCategory.title;
       this.categoryContentService.productItems = activeCategory.categoryProducts;
       this.parameters = this.filterService.getFilterParameters(
-        this.filterService.getAllParameterItems(activeCategory.categoryProducts, [])
+        this.filterService.getAllParameterItems(this.categoryContentService.productItems, []),
+        new Parameter()
       );
       this.filterService.productFilters = [];
     });
