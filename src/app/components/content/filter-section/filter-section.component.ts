@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
 import { CategoryContentService } from 'src/app/services/category-content.service';
+import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-filter-section',
@@ -20,6 +21,7 @@ export class FilterSectionComponent implements OnInit {
   parameterCheckedItems: string[] = [];
 
   constructor(private filterService: FilterService,
+              private searchService: SearchService,
               private categoryContentService: CategoryContentService) { }
 
   ngOnInit() {
@@ -48,8 +50,16 @@ export class FilterSectionComponent implements OnInit {
     } else {
       currentProductFilter.push(itemTitle);
     }
-
+    
     this.addPriceRangeParameter();
+  
+    this.searchService.parameters = this.filterService.getFilterParameters(
+      this.filterService.getAllParameterItems(
+        this.searchService.filteredSearchProductItems, 
+        this.searchService.categoryTitles
+      ),
+      this.searchService.parameters[parameterIndex]
+    );
 
     this.parameters = this.filterService.getFilterParameters(
       this.filterService.getAllParameterItems(this.categoryContentService.productItems, []),
@@ -58,7 +68,7 @@ export class FilterSectionComponent implements OnInit {
   }
 
   addPriceRangeParameter(): void {
-    this.filterService.productFilters[this.parameters.length] = 
+    this.filterService.productFilters[this.filterService.initialParametersLength] = 
     [
       this.minPrice.nativeElement.value, 
       this.maxPrice.nativeElement.value
@@ -69,6 +79,12 @@ export class FilterSectionComponent implements OnInit {
  
     this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
       this.categoryContentService.activeCategory.categoryProducts, 
+      this.productFilters,
+      0
+    );
+
+    this.searchService.filteredSearchProductItems = this.filterService.getFilteredProductItems(
+      this.searchService.searchedProductItems, 
       this.productFilters,
       0
     );

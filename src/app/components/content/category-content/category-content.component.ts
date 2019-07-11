@@ -30,6 +30,7 @@ export class CategoryContentComponent implements OnInit {
         new Parameter()
       );
       this.filterService.productFilters = [];
+      this.filterService.initialParametersLength = this.parameters.length;
     });
   }
 }

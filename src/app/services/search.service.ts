@@ -14,6 +14,7 @@ export class SearchService {
   parameters: Parameter[] = [];
 
   searchedProductItems: ProductItem[] = [];
+  filteredSearchProductItems: ProductItem[] = this.searchedProductItems;
   categoryTitles: string[] = [];
 
   constructor(private dataProvider: DataProviderService,
@@ -22,14 +23,19 @@ export class SearchService {
   getSearchResult(): void {
     this.searchedProductItems = [];
     this.categoryTitles = [];
+    this.filterService.productFilters = [];
+    this.filteredSearchProductItems = this.searchedProductItems;
 
     this.dataProvider.categories.forEach(category => {
       this.fillSearchedProductItems(category);
     });
 
     this.parameters = this.filterService.getFilterParameters(
-      this.filterService.getAllParameterItems(this.searchedProductItems, this.categoryTitles)
+      this.filterService.getAllParameterItems(this.searchedProductItems, this.categoryTitles),
+      new Parameter()
     );
+
+    this.filterService.initialParametersLength = this.parameters.length;
   }
 
   fillSearchedProductItems(category: Category): void {
