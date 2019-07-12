@@ -4,6 +4,7 @@ import { ProductItem } from '../model/product-item';
 import { Category } from '../model/category';
 import { Parameter } from '../model/parameter';
 import { FilterService } from './filter.service';
+import { CategoryContentService } from './category-content.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,14 @@ export class SearchService {
   categoryTitles: string[] = [];
 
   constructor(private dataProvider: DataProviderService,
-              private filterService: FilterService) { }
+              private filterService: FilterService,
+              private categoryContentService: CategoryContentService) { }
 
   getSearchResult(): void {
     this.searchedProductItems = [];
     this.categoryTitles = [];
     this.filterService.productFilters = [];
+    this.categoryContentService.productItems = [];
     this.filteredSearchProductItems = this.searchedProductItems;
 
     this.dataProvider.categories.forEach(category => {

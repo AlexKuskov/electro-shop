@@ -3,6 +3,7 @@ import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
 import { CategoryContentService } from 'src/app/services/category-content.service';
 import { SearchService } from 'src/app/services/search.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter-section',
@@ -17,12 +18,10 @@ export class FilterSectionComponent implements OnInit {
   @Input()
   parameters: Parameter[];
 
-  productFilters: string[][] = this.filterService.productFilters;
-  parameterCheckedItems: string[] = [];
-
   constructor(private filterService: FilterService,
               private searchService: SearchService,
-              private categoryContentService: CategoryContentService) { }
+              private categoryContentService: CategoryContentService,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -35,59 +34,98 @@ export class FilterSectionComponent implements OnInit {
     return this.filterService.productFilters.some(productFilter => productFilter.includes(itemTitle));
   }
 
-  getCheckedItemTitle(itemTitle: string, parameterIndex: number): void {
-    //TODO: divide this method
-    this.productFilters = this.filterService.productFilters;
-
-    if (this.productFilters[parameterIndex] === undefined) {
-      this.productFilters[parameterIndex] = [];
+  addRemoveProductFilter(productFilter: string[], itemTitle: string): string[] {
+    let currentProductFilter: string[] = productFilter;
+    
+    if (currentProductFilter === undefined) {
+      currentProductFilter = [];
     }
-
-    let currentProductFilter: string[] = this.productFilters[parameterIndex];
 
     if (currentProductFilter.includes(itemTitle)) {
       currentProductFilter.splice(currentProductFilter.indexOf(itemTitle), 1);
     } else {
       currentProductFilter.push(itemTitle);
     }
-    
-    this.addPriceRangeParameter();
-  
-    this.searchService.parameters = this.filterService.getFilterParameters(
-      this.filterService.getAllParameterItems(
-        this.searchService.filteredSearchProductItems, 
-        this.searchService.categoryTitles
-      ),
-      this.searchService.parameters[parameterIndex]
-    );
 
-    this.parameters = this.filterService.getFilterParameters(
-      this.filterService.getAllParameterItems(this.categoryContentService.productItems, []),
-      this.parameters[parameterIndex]
-    );
+    return currentProductFilter;
   }
 
-  addPriceRangeParameter(): void {
+  toggleParameterItem(itemTitle: string, parameterIndex: number): void {
+    let productFilters: string[][] = this.filterService.productFilters;
+    let isSearchOpened: boolean = this.isSearchPageOpened();
+  
+    productFilters[parameterIndex] = this.addRemoveProductFilter(productFilters[parameterIndex], itemTitle);
+
+    this.updatePageData(isSearchOpened, productFilters, parameterIndex);
+  }
+
+  updateFilterParameters(isSearchOpened: boolean, parameterIndex: number) {
+    let searchParameter: Parameter;
+    let categoryContentParameter: Parameter;
+
+    // -10 is random number. Used just to distinguish from normal parameterIndex
+    if (parameterIndex === -10) {
+      searchParameter = new Parameter();
+      categoryContentParameter = new Parameter();
+    } else {
+      searchParameter = this.searchService.parameters[parameterIndex];
+      categoryContentParameter = this.parameters[parameterIndex];
+    }
+  
+    if (isSearchOpened) {
+      this.searchService.parameters = this.filterService.getFilterParameters(
+        this.filterService.getAllParameterItems(
+          this.searchService.filteredSearchProductItems, 
+          this.searchService.categoryTitles
+        ),
+        searchParameter
+      );
+    } else {
+      this.parameters = this.filterService.getFilterParameters(
+        this.filterService.getAllParameterItems(this.categoryContentService.productItems, []),
+        categoryContentParameter
+      );
+    }
+  }
+
+  updateProductItems(isSearchOpened: boolean, productFilters: string[][]) {
+    productFilters = productFilters.filter(value => !!value && value.length);
+    
+    if (isSearchOpened) {
+      this.searchService.filteredSearchProductItems = this.filterService.getFilteredProductItems(
+        this.searchService.searchedProductItems, 
+        productFilters,
+        0
+      );
+    } else {
+      this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
+        this.categoryContentService.activeCategory.categoryProducts, 
+        productFilters,
+        0
+      );
+    }
+  }
+
+  isSearchPageOpened(): boolean {
+    if (this.router.url.includes('search')) {
+      return true;
+    } else if (this.router.url.includes('category')) {
+      return false;
+    }
+  }
+
+  setPriceRangeProductFilter(): void {
     this.filterService.productFilters[this.filterService.initialParametersLength] = 
     [
       this.minPrice.nativeElement.value, 
       this.maxPrice.nativeElement.value
     ];
+  }
 
-    this.productFilters = this.filterService.productFilters;
-    this.productFilters = this.productFilters.filter(value => !!value && value.length);
- 
-    this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
-      this.categoryContentService.activeCategory.categoryProducts, 
-      this.productFilters,
-      0
-    );
-
-    this.searchService.filteredSearchProductItems = this.filterService.getFilteredProductItems(
-      this.searchService.searchedProductItems, 
-      this.productFilters,
-      0
-    );
+  updatePageData(isSearchOpened: boolean, productFilters: string[][], parameterIndex: number): void {
+    this.setPriceRangeProductFilter();
+    this.updateProductItems(isSearchOpened, productFilters);
+    this.updateFilterParameters(isSearchOpened, parameterIndex);
   }
 
 }

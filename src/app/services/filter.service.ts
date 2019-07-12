@@ -103,4 +103,6 @@ export class FilterService {
 
     return this.getFilteredProductItems(filteredProductItems, productFilters, productFilterIndex);
   }
+
+  
 }

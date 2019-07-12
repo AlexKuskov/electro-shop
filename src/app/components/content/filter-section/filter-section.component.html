@@ -13,7 +13,7 @@
           <li class="filter-parameter__option"
              *ngFor="let itemTitle of getItemTitles(parameter); let itemIndex = index;">
 
-            <input class="option-checkbox" type="checkbox" (change)="getCheckedItemTitle(itemTitle, parameterIndex)"
+            <input class="option-checkbox" type="checkbox" (change)="toggleParameterItem(itemTitle, parameterIndex)"
                    id="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}" [checked]="isChecked(itemTitle)">
             <label class="option-label" for="option-checkbox-{{ parameterIndex }}-{{ itemIndex }}">
               {{ itemTitle }} 
@@ -43,6 +43,9 @@
         name="max" 
         value="999999" 
         (click)="maxPrice.select()">
-      <button class="submit-price" (click)="addPriceRangeParameter()">OK</button>
+        <!-- -10 is random number. Used just to distinguish from normal parameterIndex -->
+      <button 
+        class="submit-price" 
+        (click)="updatePageData(isSearchPageOpened(), filterService.productFilters, -10)">OK</button>
   </div>
 </aside>
