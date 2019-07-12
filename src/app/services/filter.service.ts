@@ -61,48 +61,47 @@ export class FilterService {
   }
 
   getFilteredProductItems(productItems: ProductItem[], productFilters: string[][], productFilterIndex: number) {
-    if (productFilterIndex === productFilters.length) {
-      return productItems;
-    }
-    
-    let chosenFilterCategories: Category[] = this.dataProvider.categories.filter(category => {
-      return productFilters[productFilterIndex].includes(category.title)
-    });
-    
-    if (chosenFilterCategories.length) {
-      let chosenFilt: ProductItem[][] = chosenFilterCategories.map(category => category.categoryProducts);
-      let filt: ProductItem[] = productItems.filter(productItem => {
-        return chosenFilt.some(productItems => {
-          return productItems.some(prodItem => {
-            return prodItem.title === productItem.title;
-          });
-        });
-      });
-
-      productFilterIndex++;
-
-      return this.getFilteredProductItems(filt, productFilters, productFilterIndex);
-    }
+    let chosenFilterCategories: ProductItem[][] = this.dataProvider.categories
+        .filter(category => productFilters[productFilterIndex].includes(category.title))
+        .map(category => category.categoryProducts);
+    let filteredProductItems: ProductItem[] = 
+        this.getParameterProductItems(productItems, chosenFilterCategories, productFilters[productFilterIndex]);
 
     if (productFilterIndex === productFilters.length - 1) {
-      return productItems.filter(productItem => {
-        let productPrice: number = +productItem.price.replace(' ', '');
-        let filterPrice: string[] = productFilters[productFilterIndex];
-
-        return productPrice >= +filterPrice[0] && 
-          productPrice <= +filterPrice[1];
-      });
-    }
+      return this.getPriceFilteredProductItems(productItems, productFilters[productFilterIndex]);
+    }  
     
-    let filteredProductItems: ProductItem[] = productItems.filter(productItem => {
-      return productFilters[productFilterIndex].some(productFilter => 
-        Object.values(productItem).includes(productFilter));
-    });
-
     productFilterIndex++;
 
     return this.getFilteredProductItems(filteredProductItems, productFilters, productFilterIndex);
   }
 
-  
+  getPriceFilteredProductItems(productItems: ProductItem[], currentProductFilter: string[]): ProductItem[] {
+    return productItems.filter(productItem => {
+      let productPrice: number = +productItem.price.replace(' ', '');
+      let filterMinPrice: number = +currentProductFilter[0];
+      let filterMaxPrice: number = +currentProductFilter[1];
+
+      return productPrice >= filterMinPrice && productPrice <= filterMaxPrice;
+    });
+  }
+
+  getParameterProductItems(productItems: ProductItem[], 
+      chosenFilterCategories: ProductItem[][], 
+      currentProductFilter: string[]): ProductItem[] {
+    if (chosenFilterCategories.length) {
+      return productItems.filter(productItem => 
+        chosenFilterCategories.some(categoryProductItems => 
+          categoryProductItems.some(categoryProductItem => {
+            return categoryProductItem.title === productItem.title;
+          })
+        )
+      );
+    } else {
+      return productItems.filter(productItem => {
+        return currentProductFilter.some(productFilter => 
+          Object.values(productItem).includes(productFilter));
+      });
+    }
+  }
 }
