@@ -1,6 +1,8 @@
 <ng-template [ngIf]="modalService.isVisible">
-    <div class="black-background" @modalBackgroundFade></div>
+    <div class="black-background" @modalBackgroundFade (click)="modalService.closeModal();"></div>
     <div class="modal" @modalFade>
-        <button (click)="modalService.closeModal();">X</button>
+        <app-cart></app-cart>
+        <app-order-form></app-order-form>  
+        <button class="close" (click)="modalService.closeModal();"></button>
     </div>
 </ng-template>

@@ -20,6 +20,8 @@ import { SliderButtonDirective } from './components/content/main/slider-button.d
 import { FilterSectionComponent } from './components/content/filter-section/filter-section.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { PageNotFoundComponent } from './components/content/page-not-found/page-not-found.component';
+import { CartComponent } from './components/modal/cart/cart.component';
+import { OrderFormComponent } from './components/modal/order-form/order-form.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { PageNotFoundComponent } from './components/content/page-not-found/page-
     SliderButtonDirective,
     FilterSectionComponent,
     ModalComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CartComponent,
+    OrderFormComponent
   ],
   imports: [
     BrowserModule,
