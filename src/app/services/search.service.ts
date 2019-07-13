@@ -13,32 +13,22 @@ export class SearchService {
 
   searchValue: string;
   parameters: Parameter[] = [];
-
   searchedProductItems: ProductItem[] = [];
   filteredSearchProductItems: ProductItem[] = this.searchedProductItems;
   categoryTitles: string[] = [];
 
   constructor(private dataProvider: DataProviderService,
-              private filterService: FilterService,
               private categoryContentService: CategoryContentService) { }
 
   getSearchResult(): void {
     this.searchedProductItems = [];
     this.categoryTitles = [];
-    this.filterService.productFilters = [];
     this.categoryContentService.productItems = [];
     this.filteredSearchProductItems = this.searchedProductItems;
 
     this.dataProvider.categories.forEach(category => {
       this.fillSearchedProductItems(category);
     });
-
-    this.parameters = this.filterService.getFilterParameters(
-      this.filterService.getAllParameterItems(this.searchedProductItems, this.categoryTitles),
-      new Parameter()
-    );
-
-    this.filterService.initialParametersLength = this.parameters.length;
   }
 
   fillSearchedProductItems(category: Category): void {

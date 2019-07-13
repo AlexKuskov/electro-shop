@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Parameter } from '../model/parameter';
 import { ProductItem } from '../model/product-item';
 import { DataProviderService } from './data-provider.service';
-import { Category } from '../model/category';
+import { CategoryContentService } from './category-content.service';
+import { SearchService } from './search.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,16 @@ export class FilterService {
 
   productFilters: string[][] = [];
   initialParametersLength: number;
+  
+  parameters: Parameter[];
+  minPrice: string;
+  maxPrice: string;
 
-  constructor(public dataProvider: DataProviderService) { }
+  constructor(public dataProvider: DataProviderService,
+              private categoryContentService: CategoryContentService,
+              private searchService: SearchService) { }
 
-  getAllParameterItems(categoryProducts: ProductItem[], categoryTitles: string[]) {
+  getAllParameterItems(categoryProducts: ProductItem[], categoryTitles: string[]): string[][] {
     let items: string[][] = [];
 
     items.push(categoryTitles);
@@ -27,7 +34,7 @@ export class FilterService {
     return items;
   }
 
-  getFilterParameters(items: string[][], lastChangedParameter: Parameter) {
+  getFilterParameters(items: string[][], lastChangedParameter: Parameter): Parameter[] {
     let parameters: Parameter[] = [];
 
     items.forEach((parameterItem, index) => {
@@ -60,7 +67,7 @@ export class FilterService {
     return parameterItems;
   }
 
-  getFilteredProductItems(productItems: ProductItem[], productFilters: string[][], productFilterIndex: number) {
+  getFilteredProductItems(productItems: ProductItem[], productFilters: string[][], productFilterIndex: number): ProductItem[] {
     let chosenFilterCategories: ProductItem[][] = this.dataProvider.categories
         .filter(category => productFilters[productFilterIndex].includes(category.title))
         .map(category => category.categoryProducts);
@@ -87,8 +94,8 @@ export class FilterService {
   }
 
   getParameterProductItems(productItems: ProductItem[], 
-      chosenFilterCategories: ProductItem[][], 
-      currentProductFilter: string[]): ProductItem[] {
+                           chosenFilterCategories: ProductItem[][], 
+                           currentProductFilter: string[]): ProductItem[] {
     if (chosenFilterCategories.length) {
       return productItems.filter(productItem => 
         chosenFilterCategories.some(categoryProductItems => 
@@ -103,5 +110,76 @@ export class FilterService {
           Object.values(productItem).includes(productFilter));
       });
     }
+  }
+
+  setPriceRangeProductFilter(): void {
+    this.productFilters[this.initialParametersLength] = 
+    [
+      this.minPrice,
+      this.maxPrice
+    ];
+  }
+
+  updateProductItems(isSearchOpened: boolean, productFilters: string[][]): void {
+    productFilters = productFilters.filter(value => !!value && value.length);
+    
+    if (isSearchOpened) {
+      this.searchService.filteredSearchProductItems = this.getFilteredProductItems(
+        this.searchService.searchedProductItems, 
+        productFilters,
+        0
+      );
+    } else {
+      this.categoryContentService.productItems = this.getFilteredProductItems(
+        this.categoryContentService.activeCategory.categoryProducts, 
+        productFilters,
+        0
+      );
+    }
+  }
+
+  updateFilterParameters(isSearchOpened: boolean, parameterIndex: number): void {
+    let searchParameter: Parameter;
+    let categoryContentParameter: Parameter;
+
+    // -10 is random number. Used just to distinguish from normal parameterIndex
+    if (parameterIndex === -10) {
+      searchParameter = new Parameter();
+      categoryContentParameter = new Parameter();
+    } else {
+      searchParameter = this.searchService.parameters[parameterIndex];
+      categoryContentParameter = this.parameters[parameterIndex];
+    }
+  
+    if (isSearchOpened) {
+      this.searchService.parameters = this.getFilterParameters(
+        this.getAllParameterItems(
+          this.searchService.filteredSearchProductItems, 
+          this.searchService.categoryTitles
+        ),
+        searchParameter
+      );
+    } else {
+      this.parameters = this.getFilterParameters(
+        this.getAllParameterItems(this.categoryContentService.productItems, []),
+        categoryContentParameter
+      );
+    }
+  }
+
+  addRemoveProductFilter(productFilter: string[], itemTitle: string): string[] {
+    let currentProductFilter: string[] = productFilter;
+    
+    if (currentProductFilter === undefined) {
+      currentProductFilter = [];
+    }
+
+    if (currentProductFilter.includes(itemTitle)) {
+      currentProductFilter.splice(currentProductFilter.indexOf(itemTitle), 1);
+    } else {
+      currentProductFilter.push(itemTitle);
+    }
+
+    return currentProductFilter;
   }
 }

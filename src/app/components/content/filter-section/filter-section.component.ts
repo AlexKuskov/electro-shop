@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { Parameter } from 'src/app/model/parameter';
 import { FilterService } from 'src/app/services/filter.service';
-import { CategoryContentService } from 'src/app/services/category-content.service';
-import { SearchService } from 'src/app/services/search.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,11 +17,14 @@ export class FilterSectionComponent implements OnInit {
   parameters: Parameter[];
 
   constructor(private filterService: FilterService,
-              private searchService: SearchService,
-              private categoryContentService: CategoryContentService,
               private router: Router) { }
 
   ngOnInit() {
+  }
+
+  updateFilterServicePriceValues() {
+    this.filterService.minPrice = this.minPrice.nativeElement.value;
+    this.filterService.maxPrice = this.maxPrice.nativeElement.value;
   }
 
   getItemTitles(parameter: Parameter): string[] {
@@ -34,76 +35,13 @@ export class FilterSectionComponent implements OnInit {
     return this.filterService.productFilters.some(productFilter => productFilter.includes(itemTitle));
   }
 
-  addRemoveProductFilter(productFilter: string[], itemTitle: string): string[] {
-    let currentProductFilter: string[] = productFilter;
-    
-    if (currentProductFilter === undefined) {
-      currentProductFilter = [];
-    }
-
-    if (currentProductFilter.includes(itemTitle)) {
-      currentProductFilter.splice(currentProductFilter.indexOf(itemTitle), 1);
-    } else {
-      currentProductFilter.push(itemTitle);
-    }
-
-    return currentProductFilter;
-  }
-
   toggleParameterItem(itemTitle: string, parameterIndex: number): void {
     let productFilters: string[][] = this.filterService.productFilters;
     let isSearchOpened: boolean = this.isSearchPageOpened();
   
-    productFilters[parameterIndex] = this.addRemoveProductFilter(productFilters[parameterIndex], itemTitle);
+    productFilters[parameterIndex] = this.filterService.addRemoveProductFilter(productFilters[parameterIndex], itemTitle);
 
     this.updatePageData(isSearchOpened, productFilters, parameterIndex);
-  }
-
-  updateFilterParameters(isSearchOpened: boolean, parameterIndex: number) {
-    let searchParameter: Parameter;
-    let categoryContentParameter: Parameter;
-
-    // -10 is random number. Used just to distinguish from normal parameterIndex
-    if (parameterIndex === -10) {
-      searchParameter = new Parameter();
-      categoryContentParameter = new Parameter();
-    } else {
-      searchParameter = this.searchService.parameters[parameterIndex];
-      categoryContentParameter = this.parameters[parameterIndex];
-    }
-  
-    if (isSearchOpened) {
-      this.searchService.parameters = this.filterService.getFilterParameters(
-        this.filterService.getAllParameterItems(
-          this.searchService.filteredSearchProductItems, 
-          this.searchService.categoryTitles
-        ),
-        searchParameter
-      );
-    } else {
-      this.parameters = this.filterService.getFilterParameters(
-        this.filterService.getAllParameterItems(this.categoryContentService.productItems, []),
-        categoryContentParameter
-      );
-    }
-  }
-
-  updateProductItems(isSearchOpened: boolean, productFilters: string[][]) {
-    productFilters = productFilters.filter(value => !!value && value.length);
-    
-    if (isSearchOpened) {
-      this.searchService.filteredSearchProductItems = this.filterService.getFilteredProductItems(
-        this.searchService.searchedProductItems, 
-        productFilters,
-        0
-      );
-    } else {
-      this.categoryContentService.productItems = this.filterService.getFilteredProductItems(
-        this.categoryContentService.activeCategory.categoryProducts, 
-        productFilters,
-        0
-      );
-    }
   }
 
   isSearchPageOpened(): boolean {
@@ -114,18 +52,12 @@ export class FilterSectionComponent implements OnInit {
     }
   }
 
-  setPriceRangeProductFilter(): void {
-    this.filterService.productFilters[this.filterService.initialParametersLength] = 
-    [
-      this.minPrice.nativeElement.value, 
-      this.maxPrice.nativeElement.value
-    ];
-  }
-
   updatePageData(isSearchOpened: boolean, productFilters: string[][], parameterIndex: number): void {
-    this.setPriceRangeProductFilter();
-    this.updateProductItems(isSearchOpened, productFilters);
-    this.updateFilterParameters(isSearchOpened, parameterIndex);
+    this.filterService.parameters = this.parameters;
+    this.updateFilterServicePriceValues();
+    this.filterService.setPriceRangeProductFilter();
+    this.filterService.updateProductItems(isSearchOpened, productFilters);
+    this.filterService.updateFilterParameters(isSearchOpened, parameterIndex);
+    this.parameters = this.filterService.parameters;
   }
-
 }
