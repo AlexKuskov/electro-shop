@@ -124,3 +124,26 @@
     font-size: 20px;
     font-weight: 700;
 }
+
+.cart__empty-container {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    margin: auto;
+}
+
+.cart__empty-icon {
+    display: block;
+    width: 30%;
+    fill: rgb(187, 187, 187);
+    margin: 0 auto;
+}
+
+.cart__empty-text {
+    color: rgb(187, 187, 187);
+    text-align: center;
+    font-size: 30px;
+}
