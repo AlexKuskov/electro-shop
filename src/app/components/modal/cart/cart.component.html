@@ -1,28 +1,36 @@
 <div class="cart">
   <ul class="cart__product-list">
     <li class="product">
-      <div class="product__title">Amazon Kindle Whitepaper</div>
+      <div class="product__title-wrapper">
+        <span class="product__title">Amazon Kindle Whitepaper</span>
+      </div>
       
       <div class="product__price">2000 UAH</div>
 
       <div class="product__number">
-        <span class="product__subtract-button"><</span>
-        <span class="product__amount">2</span>
-        <span class="product__add-button">></span>
+        <img class="product__subtract-button" src="assets/images/icons/arrow.svg" alt="Subtract">
+        <div class="product__amount">2</div>
+        <img class="product__add-button" src="assets/images/icons/arrow.svg" alt="Add">
       </div>
-      <button class="product__delete-button">X</button>
+      <button class="product__delete-button">
+        <img class="product__delete-icon" src="assets/images/icons/rubbish-bin.svg" alt="Delete">
+      </button>
     </li>
     <li class="product">
-        <div class="product__title">Dell Inspiron 3576</div>
-        
-        <div class="product__number">
-          <span class="product__subtract-button"><</span>
-          <span class="product__amount">2</span>
-          <span class="product__add-button">></span>
+        <div class="product__title-wrapper">
+          <span class="product__title">Dell Inspiron 3576</span>
         </div>
         
         <div class="product__price">2000 UAH</div>
-        <button class="product__delete-button">X</button>
+
+        <div class="product__number">
+          <img class="product__subtract-button" src="assets/images/icons/arrow.svg" alt="Subtract">
+          <div class="product__amount">2</div>
+          <img class="product__add-button" src="assets/images/icons/arrow.svg" alt="Add">
+        </div>
+        <button class="product__delete-button">
+          <img class="product__delete-icon" src="assets/images/icons/rubbish-bin.svg" alt="Delete">
+        </button>
       </li>
   </ul>
   <button class="cart__order-button">Proceed to checkout</button>

@@ -1,3 +1,7 @@
+:host {
+    --product-height: 70px;
+}
+
 .cart {
     position: relative;
     width: 80%;
@@ -20,43 +24,103 @@
     position: relative;
     border: 2px solid rgb(0, 0, 0);
     margin: 10px 0;
-    height: 70px;
+    height: var(--product-height);
     border-radius: 15px;
 }
 
-.product__title {
-    display: inline-block;
+.product__title-wrapper {
     width: 45%;
     height: 100%;
+    display: inline-table;
+    margin-left: 5px;
+}
+
+.product__title {
+    display: table-cell; 
+    vertical-align: middle;
 }
 
 .product__number {
     display: inline-block;
     position: absolute;
-    right: 60px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 12%;
+    height: 28px;
+}
+
+.product__subtract-button {
+    height: 22px;
+    position: relative;
+    top: 2px;
+    transform: rotate(90deg);
+}
+
+.product__amount {
+    display: inline-block;
+    margin: 0 3px;
+    margin-bottom: 3px;
+}
+
+.product__add-button {
+    height: 22px;
+    position: relative;
+    top: 2px;
+    transform: rotate(-90deg);
 }
 
 .product__price {
     display: inline-block;
     position: absolute;
-    right: 150px;
+    right: 28%;
+    height: inherit;
+    line-height: var(--product-height);
+    vertical-align: middle;
 }
 
 .product__delete-button {
     display: inline-block;
     position: absolute;
-    right: 0;
+    height: 30px;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.product__delete-icon {
+    height: 30px;
 }
 
 .cart__order-button {
     position: absolute;
+    padding: 5px 15px;
+    font-weight: 700;
     bottom: 15px;
     font-size: 20px;
+    background-color: transparent;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgb(219, 219, 219);
+    }
+
+    &:active {
+        background-color: rgb(187, 187, 187);
+    }
 }
 
 .cart__total-price {
     position: absolute;
     right: 0;
-    bottom: 15px;
+    bottom: 20px;
     font-size: 20px;
+    font-weight: 700;
 }
