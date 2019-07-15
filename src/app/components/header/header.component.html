@@ -2,7 +2,8 @@
   <img routerLink="/" class="header__logo" src="assets/images/electroshop-logo.svg" alt="ElectroShop" title="ElectroShop">
   <app-header-center class="header-center"></app-header-center>
   <app-languages></app-languages>
-  <button class="cart-button" (click)="modalService.openModal();">
+  <button class="cart-button" (click)="modalService.openModal()">
+      <div class="cart-button__cart-counter">{{ cartService.cartItems.length }}</div>
       <img class="cart-button__cart-icon" src="assets/images/icons/shopping-cart.svg" alt="Cart" title="Cart">
   </button>
 </header>

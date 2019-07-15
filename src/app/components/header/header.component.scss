@@ -24,6 +24,7 @@
 }
 
 .cart-button {
+    position: relative;
     height: 36px;
     width: 50px;
     padding: 2px;
@@ -41,6 +42,17 @@
     &:active {
         border: 2px solid rgb(172, 120, 255);
     }
+}
+
+.cart-button__cart-counter {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    line-height: 24px;
+    width: 24px;
+    height: 24px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 100%;
 }
 
 .cart-button__cart-icon {
