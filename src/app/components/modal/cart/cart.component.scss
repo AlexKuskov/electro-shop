@@ -26,6 +26,7 @@
     margin: 10px 0;
     height: var(--product-height);
     border-radius: 15px;
+    user-select: none;
 }
 
 .product__title-wrapper {
@@ -55,6 +56,7 @@
     position: relative;
     top: 2px;
     transform: rotate(90deg);
+    cursor: pointer;
 }
 
 .product__amount {
@@ -68,6 +70,7 @@
     position: relative;
     top: 2px;
     transform: rotate(-90deg);
+    cursor: pointer;
 }
 
 .product__price {
@@ -94,6 +97,7 @@
 
 .product__delete-icon {
     height: 30px;
+    cursor: pointer;
 }
 
 .cart__order-button {

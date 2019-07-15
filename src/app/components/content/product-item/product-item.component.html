@@ -5,7 +5,21 @@
   <div class="product-item__info">
     <div class="product-item__title">{{ productItem.title }}</div>
     <div class="product-item__price">{{ productItem.price }} UAH</div>
-    <img class="product-item__buy-button" src="assets/images/icons/add-shopping-cart.svg" alt="Add">
+
+    <img 
+      *ngIf="addedToCart; else notAdded"
+      class="product-item__buy-button" 
+      src="assets/images/icons/check-shopping-cart.svg" 
+      (click)="removeProductItemToCart(productItem.title)" 
+      alt="Remove">
+    <ng-template #notAdded>
+      <img 
+      class="product-item__buy-button" 
+      src="assets/images/icons/add-shopping-cart.svg" 
+      (click)="addProductItemToCart(productItem.title, productItem.price)" 
+      alt="Add">
+    </ng-template>
+
     <div class="product-item__description">
       <div *ngIf="productItem.diagonal">Diagonal: {{ productItem.diagonal }}</div>
       <div *ngIf="productItem.os">OS: {{ productItem.os }}</div>
