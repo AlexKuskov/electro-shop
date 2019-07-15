@@ -11,8 +11,6 @@ export class ProductItemComponent implements OnInit {
 
   @Input()
   productItem: ProductItem;
-  
-  addedToCart: boolean = false;
 
   constructor(private cartService: CartService) { }
 
@@ -20,7 +18,6 @@ export class ProductItemComponent implements OnInit {
   }
 
   addProductItemToCart(productTitle: string, productPrice: string) {
-    this.addedToCart = true;
     productPrice = productPrice.replace(' ', '');
 
     this.cartService.addCartItem(
@@ -33,9 +30,10 @@ export class ProductItemComponent implements OnInit {
   }
 
   removeProductItemToCart(productTitle: string) {
-    this.addedToCart = false;
-
     this.cartService.removeCartItem(productTitle);
   }
 
+  isAddedToCart(productTitle: string) {
+    return this.cartService.cartItems.some(cartItem => cartItem.title === productTitle);
+  }
 }

@@ -7,7 +7,7 @@
     <div class="product-item__price">{{ productItem.price }} UAH</div>
 
     <img 
-      *ngIf="addedToCart; else notAdded"
+      *ngIf="isAddedToCart(productItem.title); else notAdded"
       class="product-item__buy-button" 
       src="assets/images/icons/check-shopping-cart.svg" 
       (click)="removeProductItemToCart(productItem.title)" 
