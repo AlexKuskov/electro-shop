@@ -5,7 +5,7 @@
   <div class="product-item__info">
     <div class="product-item__title">{{ productItem.title }}</div>
     <div class="product-item__price">{{ productItem.price }} UAH</div>
-    <button class="product-item__buy-button">Buy</button>
+    <img class="product-item__buy-button" src="assets/images/icons/add-shopping-cart.svg" alt="Add">
     <div class="product-item__description">
       <div *ngIf="productItem.diagonal">Diagonal: {{ productItem.diagonal }}</div>
       <div *ngIf="productItem.os">OS: {{ productItem.os }}</div>

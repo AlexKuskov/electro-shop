@@ -31,6 +31,7 @@
 }
 
 .product-item__info {
+    position: relative;
     padding: 5px;
 }
 
@@ -43,11 +44,16 @@
 .product-item__price {
     display: inline-block;
     width: 50%;
+    margin-left: 5px;
 }
 
 .product-item__buy-button {
     display: inline-block;
-    width: 50%;
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    cursor: pointer;
 }
 
 .product-item__description {
