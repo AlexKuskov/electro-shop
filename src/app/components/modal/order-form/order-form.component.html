@@ -1,8 +1,4 @@
-<!-- <p class="order-sent-message">
-  Your order is sent. We'll send you feedback as soon as possible.
-</p> -->
-
-<form class="order-form" (ngSubmit)="onSubmit()" #f="ngForm">
+<form class="order-form" (ngSubmit)="onSubmit(f.valid)" #f="ngForm" *ngIf="isOrderFormVisible; else orderSent">
   <label class="order-form__label" for="name">Name:</label>
   <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
          type="text" id="name" name="name" required>
@@ -19,7 +15,13 @@
   <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
          type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" maxlength="10" required>
   
-  <button class="order-form__button">Back To Cart</button>
+  <button class="order-form__button" type="button" (click)="modalService.backToCart()">Back To Cart</button>
   <button class="order-form__button order-form__button--complete-order" type="submit">Complete Order</button>
 </form>
+
+<ng-template #orderSent>
+  <p class="order-sent-message">
+    Your order is sent. We'll send you feedback as soon as possible.
+  </p>
+</ng-template>
 

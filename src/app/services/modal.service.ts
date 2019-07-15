@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class ModalService {
 
   isVisible: boolean;
+  isCartVisible: boolean;
 
   constructor() { }
 
@@ -15,5 +16,14 @@ export class ModalService {
 
   openModal() {
     this.isVisible = true;
+    this.isCartVisible = true;
+  }
+
+  proceedToCheckout() {
+    this.isCartVisible = false;
+  }
+
+  backToCart() {
+    this.isCartVisible = true;
   }
 }

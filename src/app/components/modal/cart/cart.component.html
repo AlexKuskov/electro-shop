@@ -24,7 +24,9 @@
           </button>
         </li>
       </ul>
-      <button class="cart__order-button">Proceed To Checkout</button>
+      <button class="cart__order-button" type="button" (click)="modalService.proceedToCheckout()">
+        Proceed To Checkout
+      </button>
       <span class="cart__total-price">Total Price: {{ cartService.totalPrice }} UAH</span> 
   </ng-template>
   
@@ -40,6 +42,5 @@
       <p class="cart__empty-text">Cart is empty</p>
     </div>
   </ng-template>
-  
-</div>
+  </div>
 

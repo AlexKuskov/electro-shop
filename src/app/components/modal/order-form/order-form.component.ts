@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-order-form',
@@ -7,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderFormComponent implements OnInit {
 
-  constructor() { }
+  isOrderFormVisible: boolean;
+
+  constructor(public modalService: ModalService) { }
 
   ngOnInit() {
+    this.isOrderFormVisible = true;
   }
 
-  onSubmit() {
-    
+  onSubmit(isFormValid: boolean) {
+    if (isFormValid) {
+      this.isOrderFormVisible = false;
+    }
   }
 
 }
