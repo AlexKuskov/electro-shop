@@ -1,21 +1,25 @@
-<p class="order-sent-message">
+<!-- <p class="order-sent-message">
   Your order is sent. We'll send you feedback as soon as possible.
-</p>
+</p> -->
 
-<!-- <form class="order-form">
+<form class="order-form" (ngSubmit)="onSubmit()" #f="ngForm">
   <label class="order-form__label" for="name">Name:</label>
-  <input class="order-form__field" type="text" id="name">
+  <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
+         type="text" id="name" name="name" required>
   
   <label class="order-form__label" for="surname">Surname:</label>
-  <input class="order-form__field" type="text" id="surname">
+  <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
+         type="text" id="surname" name="surname" required>
   
   <label class="order-form__label" for="email">E-mail:</label>
-  <input class="order-form__field" type="text" id="email">
+  <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
+         type="email" id="email" name="email" required email>
   
   <label class="order-form__label" for="phone-number">Phone number:</label>
-  <input class="order-form__field" type="text" id="phone-number">
+  <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
+         type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" maxlength="10" required>
   
   <button class="order-form__button">Back To Cart</button>
-  <button class="order-form__button order-form__button--complete-order">Complete Order</button>
-</form> -->
+  <button class="order-form__button order-form__button--complete-order" type="submit">Complete Order</button>
+</form>
 

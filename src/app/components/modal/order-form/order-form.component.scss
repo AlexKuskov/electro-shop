@@ -28,6 +28,10 @@
     padding-left: 8px;
 }
 
+.order-form__field.ng-invalid.submitted {
+    border: 2px solid rgb(255, 65, 65);
+}
+
 .order-form__button {
     margin-top: 30px;
     padding: 5px 15px;
