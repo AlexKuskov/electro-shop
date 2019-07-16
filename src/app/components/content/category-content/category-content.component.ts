@@ -17,7 +17,7 @@ export class CategoryContentComponent implements OnInit {
   parameters: Parameter[];
 
   constructor(private route: ActivatedRoute,
-    private categoryContentService: CategoryContentService,
+    public categoryContentService: CategoryContentService,
     private filterService: FilterService,
     private searchService: SearchService) { }
 

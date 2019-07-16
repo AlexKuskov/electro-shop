@@ -16,7 +16,7 @@ export class FilterSectionComponent implements OnInit {
   @Input()
   parameters: Parameter[];
 
-  constructor(private filterService: FilterService,
+  constructor(public filterService: FilterService,
               private router: Router) { }
 
   ngOnInit() {
