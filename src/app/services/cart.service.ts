@@ -15,15 +15,21 @@ export class CartService {
   addCartItem(cartItem: CartItem) {
     this.cartItems.push(cartItem);
     this.updateTotalPrice();
+    this.saveCartItems();
   }
 
   removeCartItem(productTitle: string) {
     this.cartItems = this.cartItems.filter(cartItem => cartItem.title !== productTitle);
     if (this.cartItems.length) this.updateTotalPrice();
+    this.saveCartItems();
   }
 
   updateTotalPrice() {
     let prices: number[] = this.cartItems.map(cartItem => cartItem.price * cartItem.amount);
     this.totalPrice = prices.reduce((accumulator, currentPrice) => accumulator + currentPrice);
+  }
+
+  saveCartItems() {
+    localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
   }
 }

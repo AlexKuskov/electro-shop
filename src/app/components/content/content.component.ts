@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
 import { SliderService } from 'src/app/services/slider.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-content',
@@ -10,10 +11,12 @@ export class ContentComponent implements OnInit {
 
   windowScrolled: boolean;
 
-  constructor(private sliderService: SliderService) { }
+  constructor(private sliderService: SliderService,
+              private cartService: CartService) { }
 
   ngOnInit() {
     this.sliderService.runAutoScroll();
+    this.cartService.cartItems = JSON.parse(localStorage.getItem('cartItems'))
   }
 
   @HostListener("window:scroll", [])
