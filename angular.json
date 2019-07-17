@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/electro-shop",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -56,6 +56,23 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "ua": {
+              "aot": true,
+              "outputPath": "dist/electro-shop-ua/",
+              "i18nFile": "src/locale/messages.ua.xlf",
+              "baseHref": "/ua/",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ru-UA",
+              "i18nMissingTranslation": "error"
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/electro-shop-en/",
+              "i18nFile": "src/locale/messages.en.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "en",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -67,6 +84,12 @@
           "configurations": {
             "production": {
               "browserTarget": "electro-shop:build:production"
+            },
+            "ua": {
+              "browserTarget": "electro-shop:build:ua"
+            },
+            "en": {
+              "browserTarget": "electro-shop:build:en"
             }
           }
         },
@@ -103,6 +126,29 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/server",
+            "main": "src/main.server.ts",
+            "tsConfig": "src/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": {
+                "scripts": false,
+                "styles": true
+              }
+            }
           }
         }
       }

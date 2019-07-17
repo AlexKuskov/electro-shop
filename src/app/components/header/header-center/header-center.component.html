@@ -1,4 +1,4 @@
-<div class="contact-numbers">
+<div class="contact-numbers" i18n="@@contactNumbers">
     Contact numbers: +38&#8209;XXX&#8209;XXX&#8209;XX&#8209;XX, +38&#8209;XXX&#8209;XXX&#8209;XX&#8209;XX, 
     +38&#8209;XXX&#8209;XXX&#8209;XX&#8209;XX
 </div>
@@ -11,6 +11,7 @@
             type="text" 
             name="q" 
             placeholder="Search"
+            i18n-placeholder="@@searchPlaceholder"
             required>
         <button [disabled]="!searchForm.valid" routerLink="/search" class="search-bar__search-button" type="submit">
             <img class="search-bar__magnifying-glass" src="assets/images/icons/magnifying-glass.svg" alt="Search">

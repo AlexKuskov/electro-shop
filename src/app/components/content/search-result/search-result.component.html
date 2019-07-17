@@ -1,6 +1,6 @@
 <app-filter-section [parameters]="searchService.parameters"></app-filter-section>
 <div class="search-result-container">
-    <h1 class="elements-found-number">
+    <h1 class="elements-found-number" i18n="@@elementsFound">
         Elements were found by your request 
         <span *ngIf="searchService.searchValue">"{{ searchService.searchValue }}"</span>: 
         {{ searchService.filteredSearchProductItems.length }}

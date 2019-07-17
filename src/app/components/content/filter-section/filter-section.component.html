@@ -1,7 +1,9 @@
 <aside class="filter-section">
   <div class="filter-parameter" *ngFor="let parameter of parameters; let parameterIndex = index;">
-      <div class="filter-parameter__title">
-        {{ parameter.title }}
+      <div class="filter-parameter__title" i18n="@@parameterTitle">
+        {parameter.title, select, 
+          Category: {Category:} Manufacturer: {Manufacturer:} Diagonal: {Diagonal:} 
+          OS: {OS:} Screen Size: {Screen Size:} Memory Capacity: {Memory Capacity:}}
       </div> 
 
       <input class="filter-parameter__checkbox" type="checkbox" id="checkbox-{{ parameterIndex }}">
@@ -25,7 +27,7 @@
   </div>
 
   <div class="filter-parameter filter-parameter--price">
-      <div class="filter-parameter__title">Price:</div>
+      <div class="filter-parameter__title" i18n="@@parameterPrice">Price:</div>
       <input 
         #minPrice 
         class="price-field" 

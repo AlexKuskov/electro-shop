@@ -4,7 +4,7 @@
   </div>
   <div class="product-item__info">
     <div class="product-item__title">{{ productItem.title }}</div>
-    <div class="product-item__price">{{ productItem.price }} UAH</div>
+    <div class="product-item__price" i18n="@@productItemPrice">{{ productItem.price }} UAH</div>
 
     <img 
       *ngIf="isAddedToCart(productItem.title); else notAdded"
@@ -21,10 +21,14 @@
     </ng-template>
 
     <div class="product-item__description">
-      <div *ngIf="productItem.diagonal">Diagonal: {{ productItem.diagonal }}</div>
-      <div *ngIf="productItem.os">OS: {{ productItem.os }}</div>
-      <div *ngIf="productItem.screenSize">Screen Size: {{ productItem.screenSize }}</div>
-      <div *ngIf="productItem.memoryCapacity">Memory: {{ productItem.memoryCapacity }}</div>
+      <div *ngIf="productItem.diagonal" i18n="@@descriptionDiagonal">Diagonal: {{ productItem.diagonal }}</div>
+      <div *ngIf="productItem.os" i18n="@@descriptionOS">OS: {{ productItem.os }}</div>
+      <div *ngIf="productItem.screenSize" i18n="@@descriptionScreenSize">
+        Screen Size: {{ productItem.screenSize }}
+      </div>
+      <div *ngIf="productItem.memoryCapacity" i18n="@@descriptionMemoryCapacity">
+        Memory: {{ productItem.memoryCapacity }}
+      </div>
     </div>
   </div>
 </div>

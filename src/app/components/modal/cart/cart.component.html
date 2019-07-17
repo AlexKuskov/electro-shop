@@ -6,7 +6,7 @@
             <span class="product__title">{{ cartItem.title }}</span>
           </div>
           
-          <div class="product__price">{{ cartItem.price * cartItem.amount }} UAH</div>
+          <div class="product__price" i18n="@@cartItemPrice">{{ cartItem.price * cartItem.amount }} UAH</div>
     
           <div class="product__number">
             <img (click)="subtractItemAmount(cartItem)" class="product__subtract-button"
@@ -24,10 +24,11 @@
           </button>
         </li>
       </ul>
-      <button class="cart__order-button" type="button" (click)="modalService.proceedToCheckout()">
+      <button class="cart__order-button" type="button"
+             (click)="modalService.proceedToCheckout()" i18n="@@proceedToCheckout">
         Proceed To Checkout
       </button>
-      <span class="cart__total-price">Total Price: {{ cartService.totalPrice }} UAH</span> 
+      <span class="cart__total-price" i18n="@@totalPrice">Total Price: {{ cartService.totalPrice }} UAH</span> 
   </ng-template>
   
   <ng-template #emptyCart>
@@ -39,7 +40,7 @@
             43.35-25.5L504.9 89.25c5.1-5.1 5.1-7.65 5.1-12.75 0-15.3-10.2-25.5-25.5-25.5H107.1L84.15 0H0zm408
             408c-28.05 0-51 22.95-51 51s22.95 51 51 51 51-22.95 51-51-22.95-51-51-51z"/>
       </svg>
-      <p class="cart__empty-text">Cart is empty</p>
+      <p class="cart__empty-text" i18n="@@emptyCart">Cart is empty</p>
     </div>
   </ng-template>
   </div>

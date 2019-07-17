@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="categoryTitle" datatype="html">
+        <source>
+        <x id="ICU" equiv-text="{category.title, select, Laptops {...} Tablets {...} Phones {...} TVs {...} E-Books {...} Gaming Consoles {...} Smart Watches {...}}"/>
+    </source>
+    <target>
+        <x id="ICU" equiv-text="{category.title, select, Laptops {...} Tablets {...} Phones {...} TVs {...} E-Books {...} Gaming Consoles {...} Smart Watches {...}}"/>
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="df11ac3da5249fa7f0feb7d5b5f273f9525a59d5" datatype="html">
+        <source>{VAR_SELECT, select, Laptops {Laptops} Tablets {Tablets} Phones {Phones} TVs {TVs} 
+              E-Books {E-Books} Gaming Consoles {Gaming Consoles} Smart Watches {Smart Watches} }</source>
+        <target>{VAR_SELECT, select, Laptops {Ноутбуки} Tablets {Планшети} Phones {Телефони} TVs {Телевізори} 
+              E-Books {Електронні книги} Gaming Consoles {Ігрові консолі} Smart Watches {Смарт годинники} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/navigation/navigation.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+
+      <trans-unit id="contactNumbers" datatype="html">
+        <source>
+            Contact numbers: +38‑XXX‑XXX‑XX‑XX, +38‑XXX‑XXX‑XX‑XX, 
+            +38‑XXX‑XXX‑XX‑XX
+        </source>
+        <target>
+            Контактні номера: +38‑XXX‑XXX‑XX‑XX, +38‑XXX‑XXX‑XX‑XX, 
+            +38‑XXX‑XXX‑XX‑XX
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/header/header-center/header-center.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="searchPlaceholder" datatype="html">
+        <source>Search</source>
+        <target>Пошук</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/header/header-center/header-center.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <!--  -->
+      <trans-unit id="descriptionDiagonal" datatype="html">
+        <source>Diagonal: <x id="INTERPOLATION" equiv-text="{{ productItem.diagonal }}"/></source>
+        <target>Діагональ: <x id="INTERPOLATION" equiv-text="{{ productItem.diagonal }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/product-item/product-item.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="descriptionOS" datatype="html">
+        <source>OS: <x id="INTERPOLATION" equiv-text="{{ productItem.os }}"/></source>
+        <target>ОС: <x id="INTERPOLATION" equiv-text="{{ productItem.os }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/product-item/product-item.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="descriptionScreenSize" datatype="html">
+        <source>
+        Screen Size: <x id="INTERPOLATION" equiv-text="{{ productItem.screenSize }}"/>
+      </source>
+       <target>
+        Розмір Екрану: <x id="INTERPOLATION" equiv-text="{{ productItem.screenSize }}"/>
+      </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/product-item/product-item.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="descriptionMemoryCapacity" datatype="html">
+        <source>
+        Memory: <x id="INTERPOLATION" equiv-text="{{ productItem.memoryCapacity }}"/>
+      </source>
+      <target>
+        Пам'ять: <x id="INTERPOLATION" equiv-text="{{ productItem.memoryCapacity }}"/>
+      </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/product-item/product-item.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="parameterTitle" datatype="html">
+        <source>
+        <x id="ICU" equiv-text="{parameter.title, select, Category: {...} Manufacturer: {...} Diagonal: {...} OS: {...} Screen Size: {...} Memory Capacity: {...}}"/>
+      </source>
+      <target>
+        <x id="ICU" equiv-text="{parameter.title, select, Category: {...} Manufacturer: {...} Diagonal: {...} OS: {...} Screen Size: {...} Memory Capacity: {...}}"/>
+      </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="500ffaad8e791081d1865fb0cd54cb2ca4ea6f7e" datatype="html">
+        <source>{VAR_SELECT, select, Category: {Category:} Manufacturer: {Manufacturer:} Diagonal: {Diagonal:} OS: {OS:} Screen Size: {Screen Size:} Memory Capacity: {Memory Capacity:} }</source>
+        <target>{VAR_SELECT, select, Category: {Категорія:} Manufacturer: {Виробник:} Diagonal: {Діагональ:} OS: {ОС:} Screen Size: {Розмір Екрану:} Memory Capacity: {Об'єм Пам'яті:} }</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="productItemPrice" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ productItem.price }}"/> UAH</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ productItem.price }}"/> грн</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/product-item/product-item.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="parameterPrice" datatype="html">
+        <source>Price:</source>
+        <target>Ціна:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/filter-section/filter-section.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cartItemPrice" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ cartItem.price * cartItem.amount }}"/> UAH</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ cartItem.price * cartItem.amount }}"/> грн</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/cart/cart.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="totalPrice" datatype="html">
+        <source>Total Price: <x id="INTERPOLATION" equiv-text="{{ cartService.totalPrice }}"/> UAH</source>
+        <target>Загальна Ціна: <x id="INTERPOLATION" equiv-text="{{ cartService.totalPrice }}"/> грн</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/cart/cart.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="mostPopular" datatype="html">
+        <source>Most Popular</source>
+        <target>Найбільш популярні</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/main/main.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="activeCategoryTitle" datatype="html">
+        <source>
+          <x id="ICU" equiv-text="{activeCategoryTitle, select, Laptops {...} Tablets {...} Phones {...} TVs {...} E-Books {...} Gaming Consoles {...} Smart Watches {...}}"/>
+        </source>
+        <target>
+          <x id="ICU" equiv-text="{activeCategoryTitle, select, Laptops {...} Tablets {...} Phones {...} TVs {...} E-Books {...} Gaming Consoles {...} Smart Watches {...}}"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/category-content/category-content.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="600f5c09efb740bd0c1bc41e08d415ff0fe90f79" datatype="html">
+        <source>{VAR_SELECT, select, Laptops {Laptops} Tablets {Tablets} Phones {Phones} TVs {TVs} E-Books {E-Books} Gaming Consoles {Gaming Consoles} Smart Watches {Smart Watches} }</source>
+        <target>{VAR_SELECT, select, Laptops {Ноутбуки} Tablets {Планшети} Phones {Телефони} TVs {Телевізори} 
+              E-Books {Електронні книги} Gaming Consoles {Ігрові консолі} Smart Watches {Смарт годинники} }</target>
+          <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/category-content/category-content.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="elementsFound" datatype="html">
+        <source>
+        Elements were found by your request 
+        <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ searchService.searchValue }}"/>&quot;<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>: 
+        <x id="INTERPOLATION_1" equiv-text="{{ searchService.filteredSearchProductItems.length }}"/>
+    </source>
+    <target>
+        Елементів за запитом 
+        <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>&quot;<x id="INTERPOLATION" equiv-text="{{ searchService.searchValue }}"/>&quot;<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/>
+         було знайдено: 
+        <x id="INTERPOLATION_1" equiv-text="{{ searchService.filteredSearchProductItems.length }}"/>
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/content/search-result/search-result.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="socialMedia" datatype="html">
+        <source>Social media:</source>
+        <target>Соціальні мережі:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutUs" datatype="html">
+        <source>About us:</source>
+        <target>Про нас:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="offices" datatype="html">
+        <source>
+        <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Our offices:<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+        Cherkasy, Kirov st, 1<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+        Kyiv, Kirov st, 1
+    </source>
+    <target>
+        <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span&gt;"/>Наші офіси:<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/><x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+        Черкаси, вул Кірова, 1<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br/&gt;"/>
+        Київ, вул Кірова, 1
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/footer/footer.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="proceedToCheckout" datatype="html">
+        <source>
+        Proceed To Checkout
+      </source>
+      <target>
+        Оформити замовлення
+      </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/cart/cart.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="emptyCart" datatype="html">
+        <source>Cart is empty</source>
+        <target>Кошик порожній</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/cart/cart.component.html</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formName" datatype="html">
+        <source>Name:</source>
+        <target>Ім'я:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formSurname" datatype="html">
+        <source>Surname:</source>
+        <target>Прізвище:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formEmail" datatype="html">
+        <source>E-mail:</source>
+        <target>Електронна пошта:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="formPhoneNumber" datatype="html">
+        <source>Phone number:</source>
+        <target>Мобільний номер:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="backToCart" datatype="html">
+        <source>Back To Cart</source>
+        <target>Назад до кошика</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="completeOrder" datatype="html">
+        <source>Complete Order</source>
+        <target>Завершити замовлення</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderIsSent" datatype="html">
+        <source>
+    Your order is sent. We&apos;ll send you feedback as soon as possible.
+  </source>
+        <target>Ваше замовлення відправлене. Ми пришлемо вам відповідь якнайшвидше.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/components/modal/order-form/order-form.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

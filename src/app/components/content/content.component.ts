@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject, HostListener } from '@angular/core';
+import { SliderService } from 'src/app/services/slider.service';
 
 @Component({
   selector: 'app-content',
@@ -9,9 +10,10 @@ export class ContentComponent implements OnInit {
 
   windowScrolled: boolean;
 
-  constructor() { }
+  constructor(private sliderService: SliderService) { }
 
   ngOnInit() {
+    this.sliderService.runAutoScroll();
   }
 
   @HostListener("window:scroll", [])

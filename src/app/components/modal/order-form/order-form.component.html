@@ -1,26 +1,28 @@
 <form class="order-form" (ngSubmit)="onSubmit(f.valid)" #f="ngForm" *ngIf="isOrderFormVisible; else orderSent">
-  <label class="order-form__label" for="name">Name:</label>
+  <label class="order-form__label" for="name" i18n="@@formName">Name:</label>
   <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
          type="text" id="name" name="name" required>
   
-  <label class="order-form__label" for="surname">Surname:</label>
+  <label class="order-form__label" for="surname" i18n="@@formSurname">Surname:</label>
   <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
          type="text" id="surname" name="surname" required>
   
-  <label class="order-form__label" for="email">E-mail:</label>
+  <label class="order-form__label" for="email" i18n="@@formEmail">E-mail:</label>
   <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
          type="email" id="email" name="email" required email>
   
-  <label class="order-form__label" for="phone-number">Phone number:</label>
+  <label class="order-form__label" for="phone-number" i18n="@@formPhoneNumber">Phone number:</label>
   <input [ngClass]="{'submitted': f.submitted}" ngModel class="order-form__field"
          type="tel" id="phone-number" name="phone-number" pattern="[0-9]{10}" maxlength="10" required>
   
-  <button class="order-form__button" type="button" (click)="modalService.backToCart()">Back To Cart</button>
-  <button class="order-form__button order-form__button--complete-order" type="submit">Complete Order</button>
+  <button class="order-form__button" type="button"
+        (click)="modalService.backToCart()" i18n="@@backToCart">Back To Cart</button>
+  <button class="order-form__button order-form__button--complete-order"
+        type="submit" i18n="@@completeOrder">Complete Order</button>
 </form>
 
 <ng-template #orderSent>
-  <p class="order-sent-message">
+  <p class="order-sent-message" i18n="@@orderIsSent">
     Your order is sent. We'll send you feedback as soon as possible.
   </p>
 </ng-template>

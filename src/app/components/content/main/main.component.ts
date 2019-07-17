@@ -36,6 +36,5 @@ export class MainComponent implements OnInit {
               public sliderService: SliderService) { }
 
   ngOnInit() {
-    this.sliderService.runAutoScroll();
   }
 }

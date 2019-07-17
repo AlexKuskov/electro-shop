@@ -1,7 +1,11 @@
 <ng-template [ngIf]="categoryContentService.productItems" [ngIfElse]="elseBlock">
   <app-filter-section [parameters]="parameters"></app-filter-section>
   <div class="category-content">
-    <h1>{{ activeCategoryTitle }}</h1>
+    <h1 i18n="@@activeCategoryTitle">
+      {activeCategoryTitle, select, 
+        Laptops {Laptops} Tablets {Tablets} Phones {Phones} TVs {TVs}
+        E-Books {E-Books} Gaming Consoles {Gaming Consoles} Smart Watches {Smart Watches}}
+    </h1>
     <app-products-grid [productItems]="categoryContentService.productItems"></app-products-grid>
   </div>
 </ng-template>
