@@ -20,4 +20,16 @@ export class CategoryContentService {
       }
     }
   }
+
+  setCategoryProductItems() {
+    if (localStorage.getItem('categoryProductItems')) {
+      this.productItems = JSON.parse(localStorage.getItem('categoryProductItems'));
+    }
+  }
+
+  removeCategoryContentSavedSettings() {
+    localStorage.removeItem('productFilters');
+    localStorage.removeItem('categoryProductItems');
+    localStorage.removeItem("parameters");
+  }
 }

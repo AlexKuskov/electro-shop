@@ -16,7 +16,9 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {
     this.sliderService.runAutoScroll();
-    this.cartService.cartItems = JSON.parse(localStorage.getItem('cartItems'))
+    if (localStorage.getItem('cartItems')) {
+      this.cartService.cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    }
   }
 
   @HostListener("window:scroll", [])

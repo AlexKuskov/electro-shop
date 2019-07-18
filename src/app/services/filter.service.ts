@@ -135,6 +135,7 @@ export class FilterService {
         productFilters,
         0
       );
+      localStorage.setItem("categoryProductItems", JSON.stringify(this.categoryContentService.productItems));
     }
   }
 
@@ -181,5 +182,15 @@ export class FilterService {
     }
 
     return currentProductFilter;
+  }
+
+  setProductFilters() {
+    if (localStorage.getItem('productFilters')) {
+      let savedProductFilters: string[][] = JSON.parse(localStorage.getItem('productFilters'));
+
+      savedProductFilters.forEach((productFilter, index) => {
+        if (productFilter) this.productFilters[index] = productFilter;
+      });
+    }
   }
 }

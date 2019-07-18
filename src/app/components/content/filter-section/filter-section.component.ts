@@ -20,6 +20,7 @@ export class FilterSectionComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+    
   }
 
   updateFilterServicePriceValues() {
@@ -41,7 +42,10 @@ export class FilterSectionComponent implements OnInit {
   
     productFilters[parameterIndex] = this.filterService.addRemoveProductFilter(productFilters[parameterIndex], itemTitle);
 
-    this.updatePageData(isSearchOpened, productFilters, parameterIndex);
+    this.updatePageData(isSearchOpened, productFilters, parameterIndex);  
+    
+    localStorage.setItem("parameters", JSON.stringify(this.parameters));
+    localStorage.setItem("productFilters", JSON.stringify(productFilters));
   }
 
   isSearchPageOpened(): boolean {

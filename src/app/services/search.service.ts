@@ -3,7 +3,6 @@ import { DataProviderService } from './data-provider.service';
 import { ProductItem } from '../model/product-item';
 import { Category } from '../model/category';
 import { Parameter } from '../model/parameter';
-import { FilterService } from './filter.service';
 import { CategoryContentService } from './category-content.service';
 
 @Injectable({
@@ -29,6 +28,8 @@ export class SearchService {
     this.dataProvider.categories.forEach(category => {
       this.fillSearchedProductItems(category);
     });
+
+    this.categoryContentService.removeCategoryContentSavedSettings();
   }
 
   fillSearchedProductItems(category: Category): void {

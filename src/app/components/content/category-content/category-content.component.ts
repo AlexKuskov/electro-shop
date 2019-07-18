@@ -22,9 +22,10 @@ export class CategoryContentComponent implements OnInit {
     private searchService: SearchService) { }
 
   ngOnInit() {
+    let categoryTitle: string;
+
     this.route.params.subscribe((params: Params) => {
       let activeCategory: Category = this.categoryContentService.getActiveCategory(params['category-title']);
-      
       this.categoryContentService.activeCategory = activeCategory;
       this.activeCategoryTitle = activeCategory.title;
       this.categoryContentService.productItems = activeCategory.categoryProducts;
@@ -37,6 +38,21 @@ export class CategoryContentComponent implements OnInit {
       this.filterService.productFilters = [];
       this.filterService.initialParametersLength = this.parameters.length;
       this.searchService.filteredSearchProductItems = [];
+
+      if (!categoryTitle) this.setSavedSettings();
+      categoryTitle = params['category-title'];
+
+      this.categoryContentService.removeCategoryContentSavedSettings();
     });
+  }
+
+  setSavedSettings() {
+    this.categoryContentService.setCategoryProductItems();
+
+    if (localStorage.getItem('parameters')) {
+      this.parameters = JSON.parse(localStorage.getItem('parameters'));
+    }
+
+    this.filterService.setProductFilters();
   }
 }
