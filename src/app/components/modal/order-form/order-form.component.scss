@@ -20,8 +20,8 @@
 }
 
 .order-form__field {
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 15px;
+    border: 2px solid var(--global--color--black);
+    border-radius: var(--global--border-radius);
     height: 30px;
     margin-bottom: 10px;
     outline: none;
@@ -37,8 +37,8 @@
     padding: 5px 15px;
     font-weight: 700;
     background-color: transparent;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 15px;
+    border: 2px solid var(--global--color--black);
+    border-radius: var(--global--border-radius);
     outline: none;
     cursor: pointer;
 

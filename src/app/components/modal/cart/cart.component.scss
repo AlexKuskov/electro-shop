@@ -22,10 +22,10 @@
 
 .product {
     position: relative;
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid var(--global--color--black);
     margin: 10px 0;
     height: var(--product-height);
-    border-radius: 15px;
+    border-radius: var(--global--border-radius);
     user-select: none;
 }
 
@@ -107,8 +107,8 @@
     bottom: 15px;
     font-size: 20px;
     background-color: transparent;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 15px;
+    border: 2px solid var(--global--color--black);
+    border-radius: var(--global--border-radius);
     outline: none;
     cursor: pointer;
 

@@ -3,12 +3,12 @@
 }
 
 .nav {
-    --border-configs: 3px solid rgb(200, 166, 255);
+    --border-configs: 3px solid var(--global--color--secondary);
 
     display: flex;
     width: 100%;
     height: var(--height);
-    background-color: rgb(232, 218, 255);
+    background-color: var(--global--color--primary-light);
     border-top: var(--border-configs);
     border-bottom: var(--border-configs);
 }
@@ -18,8 +18,8 @@
     line-height: var(--height);
     text-align: center;
     flex-grow: 1;
-    border-right: 3px solid rgb(200, 166, 255);
-    border-left: 3px solid rgb(200, 166, 255);
+    border-right: 3px solid var(--global--color--secondary);
+    border-left: 3px solid var(--global--color--secondary);
     cursor: pointer;
     user-select: none;
 

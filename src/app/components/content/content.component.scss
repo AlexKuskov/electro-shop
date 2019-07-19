@@ -3,7 +3,7 @@
     width: 100%;
     min-height: 60vh;
     background-color: rgb(188, 184, 253);
-    background-image: linear-gradient(rgb(232, 218, 255), rgb(116, 116, 252));
+    background-image: linear-gradient(var(--global--color--primary-light), var(--global--color--primary));
 }
 
 .content__up-button {

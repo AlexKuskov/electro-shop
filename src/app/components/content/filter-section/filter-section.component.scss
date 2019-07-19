@@ -6,8 +6,8 @@
 
 .filter-parameter {
     position: relative;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 15px;
+    border: 2px solid var(--global--color--black);
+    border-radius: var(--global--border-radius);
     margin-bottom: 15px;
     padding: 5px;
 }
@@ -75,7 +75,7 @@
         right: 3px;
         height: 14px;
         width: 14px;
-        border: 2px solid rgb(0, 0, 0);
+        border: 2px solid var(--global--color--black);
     }
 
     &::after {
@@ -86,7 +86,7 @@
         top: 1px;
         height: 10px;
         width: 5px;
-        border: solid rgb(0, 0, 0);
+        border: solid var(--global--color--black);
         border-width: 0 3px 3px 0;
         transform: rotate(45deg);
         visibility: hidden;

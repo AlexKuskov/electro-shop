@@ -16,7 +16,7 @@
 .search-bar__search-field {
     width: 100%;
     height: 30px;
-    border: 2px solid rgb(200, 166, 255);
+    border: 2px solid var(--global--color--secondary);
     border-right: none;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -31,8 +31,8 @@
 .search-bar__search-button {
     height: 36px;
     width: 60px;
-    border: 2px solid rgb(200, 166, 255);
-    background-color: rgb(200, 166, 255);
+    border: 2px solid var(--global--color--secondary);
+    background-color: var(--global--color--secondary);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     cursor: pointer;

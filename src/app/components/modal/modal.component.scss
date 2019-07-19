@@ -4,7 +4,7 @@
     opacity: 0.5;
     height: 100%;
     width: 100%;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--global--color--black);
     z-index: 1;
 }
 
@@ -19,8 +19,8 @@
     height: 80%;
     width: 70%;
     background-color: rgb(255, 255, 255);
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 15px;
+    border: 2px solid var(--global--color--black);
+    border-radius: var(--global--border-radius);
 }
 
 .close {
