@@ -10,16 +10,20 @@
 }
 
 .slider {
-    display: flex;
     position: relative;
     overflow: hidden;
     width: 90%;
     margin: 3% 5%;
 }
 
+.slide-container {
+    width: 300%;
+}
+
 .slider__slide {
+    float: left;
     position: relative;
-    width: 100%;
+    width: 33.33%;
 }
 
 .prev {
@@ -68,6 +72,7 @@
     &::before {
         content: '';
         position: absolute;
+        top: 5%;
         width: 18px;
         height: 18px;
         border: 2px solid var(--light-blue-color);

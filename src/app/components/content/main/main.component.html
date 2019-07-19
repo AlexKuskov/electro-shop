@@ -1,10 +1,12 @@
 <main class="main">
     <div class="slider">
-        <img class="slider__slide" 
-            [@selectSlide]="sliderService.getSlide()"
-            *ngFor="let slide of dataProvider.slides"
-            [src]="slide" 
-            alt="Slide">
+        <div class="slide-container">
+            <img class="slider__slide" 
+                [@selectSlide]="sliderService.getSlide()"
+                *ngFor="let slide of dataProvider.slides"
+                [src]="slide" 
+                alt="Slide">
+        </div>
 
         <div sliderButton class="arrows prev" (click)="sliderService.decreaseIndex()"></div>
         <div sliderButton class="arrows next" (click)="sliderService.increaseIndex()"></div>
