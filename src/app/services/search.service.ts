@@ -28,7 +28,12 @@ export class SearchService {
     this.dataProvider.categories.forEach(category => {
       this.fillSearchedProductItems(category);
     });
-
+    
+    localStorage.setItem("searchValue", this.searchValue);
+    localStorage.setItem("categoryTitles", JSON.stringify(this.categoryTitles));
+    localStorage.setItem("filteredSearchProductItems", JSON.stringify(this.filteredSearchProductItems));
+    localStorage.setItem("searchedProductItems", JSON.stringify(this.searchedProductItems));
+    
     this.categoryContentService.removeCategoryContentSavedSettings();
   }
 
@@ -42,5 +47,14 @@ export class SearchService {
         this.categoryTitles.push(category.title);
       }
     });
+  }
+
+  setSearchResultSettings() {
+    if (localStorage.getItem('searchFilterParameters')) {
+      this.categoryTitles = JSON.parse(localStorage.getItem('categoryTitles'));
+      this.filteredSearchProductItems = JSON.parse(localStorage.getItem('filteredSearchProductItems'));
+      this.searchedProductItems = JSON.parse(localStorage.getItem('searchedProductItems'));
+      this.parameters = JSON.parse(localStorage.getItem('searchFilterParameters'));
+    }
   }
 }

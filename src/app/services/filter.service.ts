@@ -129,6 +129,7 @@ export class FilterService {
         productFilters,
         0
       );
+      localStorage.setItem("filteredSearchProductItems", JSON.stringify(this.searchService.filteredSearchProductItems));
     } else {
       this.categoryContentService.productItems = this.getFilteredProductItems(
         this.categoryContentService.activeCategory.categoryProducts, 
@@ -160,6 +161,7 @@ export class FilterService {
         ),
         searchParameter
       );
+      localStorage.setItem('searchFilterParameters', JSON.stringify(this.searchService.parameters));
     } else {
       this.parameters = this.getFilterParameters(
         this.getAllParameterItems(this.categoryContentService.productItems, []),

@@ -5,7 +5,7 @@
 <form (submit)="onSubmit()" #searchForm="ngForm">
     <div class="search-bar">
         <input 
-            ngModel
+            [ngModel]="searchService.searchValue"
             autocomplete="off" 
             class="search-bar__search-field" 
             type="text" 

@@ -39,7 +39,6 @@ export class FilterSectionComponent implements OnInit {
   toggleParameterItem(itemTitle: string, parameterIndex: number): void {
     let productFilters: string[][] = this.filterService.productFilters;
     let isSearchOpened: boolean = this.isSearchPageOpened();
-  
     productFilters[parameterIndex] = this.filterService.addRemoveProductFilter(productFilters[parameterIndex], itemTitle);
 
     this.updatePageData(isSearchOpened, productFilters, parameterIndex);  

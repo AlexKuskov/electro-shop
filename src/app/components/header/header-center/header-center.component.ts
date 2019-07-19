@@ -16,6 +16,7 @@ export class HeaderCenterComponent implements OnInit {
               private filterService: FilterService) { }
 
   ngOnInit() {
+    this.searchService.searchValue = localStorage.getItem('searchValue');
   }
 
   onSubmit() {
@@ -30,6 +31,8 @@ export class HeaderCenterComponent implements OnInit {
       new Parameter()
     );
     this.filterService.initialParametersLength = this.searchService.parameters.length;
+    localStorage.setItem('searchFilterParameters', JSON.stringify(this.searchService.parameters));
+    localStorage.setItem('initialParametersLength', String(this.filterService.initialParametersLength));
   }
 
 }
