@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
-import { Parameter } from 'src/app/model/parameter';
+import { Parameter } from 'src/app/models/parameter';
 import { FilterService } from 'src/app/services/filter.service';
 import { Router } from '@angular/router';
 

@@ -16,7 +16,7 @@
 }
 
 .order-form__label {
-    font-weight: 700;
+    font-weight: var(--global--font-weight--bold);
 }
 
 .order-form__field {
@@ -35,7 +35,7 @@
 .order-form__button {
     margin-top: 30px;
     padding: 5px 15px;
-    font-weight: 700;
+    font-weight: var(--global--font-weight--bold);
     background-color: transparent;
     border: 2px solid var(--global--color--black);
     border-radius: var(--global--border-radius);

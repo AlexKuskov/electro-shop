@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Parameter } from '../model/parameter';
-import { ProductItem } from '../model/product-item';
+import { Parameter } from '../models/parameter';
+import { ProductItem } from '../models/product-item';
 import { DataProviderService } from './data-provider.service';
 import { CategoryContentService } from './category-content.service';
 import { SearchService } from './search.service';

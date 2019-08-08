@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SearchService } from 'src/app/services/search.service';
 import { FilterService } from 'src/app/services/filter.service';
-import { Parameter } from 'src/app/model/parameter';
+import { Parameter } from 'src/app/models/parameter';
 
 @Component({
   selector: 'app-header-center',

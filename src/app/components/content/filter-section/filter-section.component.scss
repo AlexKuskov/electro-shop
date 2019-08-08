@@ -15,7 +15,7 @@
 .filter-parameter__title {
     display: inline-block;
     width: 90%;
-    font-weight: 700;
+    font-weight: var(--global--font-weight--bold);
 }
 
 .filter-parameter__checkbox {

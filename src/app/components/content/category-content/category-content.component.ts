@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Category } from 'src/app/model/category';
+import { Category } from 'src/app/models/category';
 import { CategoryContentService } from 'src/app/services/category-content.service';
-import { Parameter } from 'src/app/model/parameter';
+import { Parameter } from 'src/app/models/parameter';
 import { FilterService } from 'src/app/services/filter.service';
 import { SearchService } from 'src/app/services/search.service';
 
